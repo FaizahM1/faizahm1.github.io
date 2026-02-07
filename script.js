@@ -4,7 +4,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // theme toggle
 const themeToggle = document.getElementById("themeToggle");
 const themeLabel = document.getElementById("themeLabel");
-const themeHeart = document.getElementById("themeHeart");
 const body = document.body;
 
 function currentTheme() {
@@ -12,9 +11,7 @@ function currentTheme() {
 }
 
 function setThemeUi() {
-  const theme = currentTheme();
-  themeLabel.textContent = theme;
-  themeHeart.textContent = theme === "blue" ? "♥︎" : "♡";
+  themeLabel.textContent = currentTheme();
 }
 
 themeToggle.addEventListener("click", () => {
@@ -46,14 +43,10 @@ const io = new IntersectionObserver((entries) => {
 
 sections.forEach(s => io.observe(s));
 
-// flip cards + heart swap
+// flip cards + confetti
 document.querySelectorAll(".flip-card").forEach(card => {
   card.addEventListener("click", (e) => {
     card.classList.toggle("flipped");
-
-    const heart = card.querySelector(".fact-heart");
-    heart.textContent = card.classList.contains("flipped") ? "♥︎" : "♡";
-
     burstConfettiAt(e.clientX, e.clientY, themeConfettiColors(currentTheme()), 16);
   });
 });
