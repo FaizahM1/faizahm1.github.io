@@ -10,12 +10,38 @@ btn.addEventListener('click', () => {
   confetti(body.classList.contains('blue-theme'));
 });
 
-// facts flip
+// facts flip with confetti
 document.querySelectorAll('.fact').forEach(f => {
-  f.addEventListener('click', () => {
+  f.addEventListener('click', (e) => {
     f.classList.toggle('flip');
+    miniConfetti(e.clientX, e.clientY, body.classList.contains('blue-theme'));
   });
 });
+
+// mini confetti burst for facts
+function miniConfetti(x, y, blue) {
+  const colors = blue ? ['#58a6ff', '#2b5f88'] : ['#8b6f47', '#6b5636'];
+  
+  for (let i = 0; i < 12; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = x + 'px';
+    c.style.top = y + 'px';
+    c.style.position = 'fixed';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    
+    const dx = (Math.random() - 0.5) * 120;
+    const dy = -(Math.random() * 100 + 40);
+    
+    c.animate([
+      { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+      { transform: `translate(${dx}px, ${dy}px) scale(0.8)`, opacity: 0 }
+    ], { duration: 600, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)' });
+    
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 600);
+  }
+}
 
 // gifs on double click
 const gifs = [
