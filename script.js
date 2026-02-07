@@ -3,24 +3,39 @@
 // footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// theme toggle
+// theme setup
+const body = document.body;
 const themeToggle = document.getElementById("themeToggle");
 const themeLabel = document.getElementById("themeLabel");
-const body = document.body;
 
 function currentTheme() {
-  return body.classList.contains("blue-theme") ? "blue" : "brown";
+  return body.classList.contains("brown-theme") ? "brown" : "blue";
 }
 
-function setThemeUi() {
-  themeLabel.textContent = currentTheme();
+function applyTheme(theme) {
+  body.classList.toggle("brown-theme", theme === "brown");
+  body.classList.toggle("blue-theme", theme === "blue");
+  themeLabel.textContent = theme;
+  localStorage.setItem("theme", theme);
 }
+
+(function initTheme() {
+  // start dark mode by default, but remember user choice
+  const saved = localStorage.getItem("theme");
+  applyTheme(saved || "blue");
+})();
 
 themeToggle.addEventListener("click", () => {
-  body.classList.toggle("blue-theme");
-  setThemeUi();
-  launchConfetti(themeConfettiColors(currentTheme()), 65);
+  const next = currentTheme() === "blue" ? "brown" : "blue";
+  applyTheme(next);
+  launchConfetti(themeConfettiColors(next), 55);
 });
+
+function themeConfettiColors(theme) {
+  return theme === "blue"
+    ? ["#0f2b3e", "#2b5f88", "#58a6ff"]
+    : ["#3b2d22", "#6b5636", "#8b6f47"];
+}
 
 // nav active highlight
 const sections = Array.from(document.querySelectorAll("section[id]"));
@@ -40,13 +55,15 @@ const io = new IntersectionObserver((entries) => {
 
 sections.forEach(s => io.observe(s));
 
-// quick facts
+// quick facts flip + heart fill
 document.querySelectorAll(".fact-card").forEach(card => {
   card.addEventListener("click", (e) => {
-    card.classList.toggle("open");
-    card.classList.remove("pop");
-    void card.offsetWidth;
-    card.classList.add("pop");
+    card.classList.toggle("flipped");
+
+    const heartPath = card.querySelector(".heart-svg path");
+    const flipped = card.classList.contains("flipped");
+    heartPath.setAttribute("fill", flipped ? "currentColor" : "none");
+
     burstConfettiAt(e.clientX, e.clientY, themeConfettiColors(currentTheme()), 14);
   });
 });
@@ -83,13 +100,8 @@ document.addEventListener("pointerdown", (e) => {
   lastTap = now;
 });
 
-// confetti
-function themeConfettiColors(theme) {
-  if (theme === "blue") return ["#0f2b3e", "#2b5f88", "#58a6ff"];
-  return ["#3b2d22", "#6b5636", "#8b6f47"];
-}
-
-function launchConfetti(colors, count = 60) {
+// confetti helpers
+function launchConfetti(colors, count = 50) {
   for (let i = 0; i < count; i++) {
     const c = document.createElement("div");
     c.className = "confetti";
@@ -97,7 +109,7 @@ function launchConfetti(colors, count = 60) {
     c.style.top = "-10px";
     c.style.background = colors[Math.floor(Math.random() * colors.length)];
 
-    const duration = 1800 + Math.random() * 1200;
+    const duration = 1700 + Math.random() * 1100;
     const drift = (Math.random() * 120 - 60);
 
     c.animate([
@@ -106,33 +118,27 @@ function launchConfetti(colors, count = 60) {
     ], { duration, easing: "linear", fill: "forwards" });
 
     document.body.appendChild(c);
-    setTimeout(() => c.remove(), duration + 100);
+    setTimeout(() => c.remove(), duration + 80);
   }
 }
 
-function burstConfettiAt(x, y, colors, count = 14) {
+function burstConfettiAt(x, y, colors, count = 12) {
   for (let i = 0; i < count; i++) {
     const piece = document.createElement("div");
     piece.className = "confetti";
     piece.style.left = `${x}px`;
     piece.style.top = `${y}px`;
-    piece.style.position = "fixed";
     piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.opacity = "0.85";
 
     const dx = (Math.random() * 140 - 70);
-    const dy = (Math.random() * 160 + 60);
+    const dy = (Math.random() * 150 + 60);
 
     piece.animate([
       { transform: "translate(-50%, -50%) scale(1)", opacity: 0.9 },
       { transform: `translate(${dx}px, ${-dy}px) rotate(${Math.random() * 720}deg) scale(0.9)`, opacity: 0 }
-    ], { duration: 650 + Math.random() * 350, easing: "cubic-bezier(.2,.8,.2,1)", fill: "forwards" });
+    ], { duration: 600 + Math.random() * 320, easing: "cubic-bezier(.2,.8,.2,1)", fill: "forwards" });
 
     document.body.appendChild(piece);
-    setTimeout(() => piece.remove(), 1100);
+    setTimeout(() => piece.remove(), 1000);
   }
 }
-
-window.addEventListener("load", () => {
-  setThemeUi();
-});
