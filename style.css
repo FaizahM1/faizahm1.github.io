@@ -200,8 +200,8 @@ body.blue-theme .theme-toggle:hover {
   line-height: 1.05;
   background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
 }
 
 .subtitle {
