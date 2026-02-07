@@ -1,3 +1,5 @@
+// script.js
+
 // footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -20,11 +22,6 @@ themeToggle.addEventListener("click", () => {
   launchConfetti(themeConfettiColors(currentTheme()), 65);
 });
 
-function themeConfettiColors(theme) {
-  if (theme === "blue") return ["#0f2b3e", "#2b5f88", "#58a6ff"];
-  return ["#3b2d22", "#6b5636", "#8b6f47"];
-}
-
 // nav active highlight
 const sections = Array.from(document.querySelectorAll("section[id]"));
 const navLinks = Array.from(document.querySelectorAll(".nav-links a[data-section]"));
@@ -43,11 +40,14 @@ const io = new IntersectionObserver((entries) => {
 
 sections.forEach(s => io.observe(s));
 
-// flip cards + confetti
-document.querySelectorAll(".flip-card").forEach(card => {
+// quick facts
+document.querySelectorAll(".fact-card").forEach(card => {
   card.addEventListener("click", (e) => {
-    card.classList.toggle("flipped");
-    burstConfettiAt(e.clientX, e.clientY, themeConfettiColors(currentTheme()), 16);
+    card.classList.toggle("open");
+    card.classList.remove("pop");
+    void card.offsetWidth;
+    card.classList.add("pop");
+    burstConfettiAt(e.clientX, e.clientY, themeConfettiColors(currentTheme()), 14);
   });
 });
 
@@ -83,7 +83,12 @@ document.addEventListener("pointerdown", (e) => {
   lastTap = now;
 });
 
-// confetti helpers
+// confetti
+function themeConfettiColors(theme) {
+  if (theme === "blue") return ["#0f2b3e", "#2b5f88", "#58a6ff"];
+  return ["#3b2d22", "#6b5636", "#8b6f47"];
+}
+
 function launchConfetti(colors, count = 60) {
   for (let i = 0; i < count; i++) {
     const c = document.createElement("div");
@@ -112,8 +117,6 @@ function burstConfettiAt(x, y, colors, count = 14) {
     piece.style.left = `${x}px`;
     piece.style.top = `${y}px`;
     piece.style.position = "fixed";
-    piece.style.width = "8px";
-    piece.style.height = "8px";
     piece.style.background = colors[Math.floor(Math.random() * colors.length)];
     piece.style.opacity = "0.85";
 
