@@ -1,5 +1,5 @@
 <!-- index.html -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -13,8 +13,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="brown-theme">
-  <nav class="navbar" id="top">
+<!-- starts white -->
+<body class="brown-theme" id="top">
+
+  <nav class="navbar">
     <div class="nav-container">
       <a class="nav-logo" href="#top" aria-label="home">FM</a>
 
@@ -24,16 +26,15 @@
         <a href="#experience" data-section="experience">Experience</a>
         <a href="#projects" data-section="projects">Projects</a>
         <a href="#volunteering" data-section="volunteering">Volunteering</a>
-        <a href="#facts" data-section="facts">Quick Facts</a>
+        <a href="#fun" data-section="fun">Quick Facts</a>
         <a href="#contact" data-section="contact">Contact</a>
 
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="toggle theme">
           <span class="toggle-dot" aria-hidden="true"></span>
-          <span class="toggle-label" id="themeLabel">blue</span>
+          <span class="toggle-label" id="themeLabel">brown</span>
         </button>
       </div>
     </div>
-    <div class="nav-underline" aria-hidden="true"></div>
   </nav>
 
   <header class="hero">
@@ -48,6 +49,7 @@
   </header>
 
   <main class="container">
+
     <section id="about" class="section">
       <h2>About Me</h2>
 
@@ -89,19 +91,20 @@
         <div class="coursework">
           <h4>Relevant Coursework</h4>
 
+          <!-- back to clean pills -->
           <div class="courses-grid">
-            <div class="course-row"><span>Data Structures</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Algorithms</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Operating Systems</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Computer Systems &amp; Networks</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Network Security &amp; Sys Admin</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Vulnerability Management</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Incident Response &amp; Forensics</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Data Analytics Programming</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Human-Computer Interface Design</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Programming Languages</span><span class="grade">B</span></div>
-            <div class="course-row"><span>Computing Theory</span><span class="grade">A</span></div>
-            <div class="course-row"><span>Management Information Systems</span><span class="grade">A</span></div>
+            <div class="course-pill"><span>Data Structures</span><b>A</b></div>
+            <div class="course-pill"><span>Algorithms</span><b>A</b></div>
+            <div class="course-pill"><span>Operating Systems</span><b>A</b></div>
+            <div class="course-pill"><span>Computer Systems & Networks</span><b>A</b></div>
+            <div class="course-pill"><span>Network Security & Sys Admin</span><b>A</b></div>
+            <div class="course-pill"><span>Vulnerability Management</span><b>A</b></div>
+            <div class="course-pill"><span>Incident Response & Forensics</span><b>A</b></div>
+            <div class="course-pill"><span>Data Analytics Programming</span><b>A</b></div>
+            <div class="course-pill"><span>Human-Computer Interface Design</span><b>A</b></div>
+            <div class="course-pill"><span>Programming Languages</span><b>B</b></div>
+            <div class="course-pill"><span>Computing Theory</span><b>A</b></div>
+            <div class="course-pill"><span>Management Information Systems</span><b>A</b></div>
           </div>
         </div>
 
@@ -117,15 +120,15 @@
       <article class="timeline-item">
         <div class="timeline-header">
           <h3>AI Research Assistant</h3>
-          <span class="date">Aug 2025 – Dec 2025</span>
+          <span class="date">Aug 2025 – Present</span>
         </div>
         <p class="company">University of the Pacific • Undergraduate Research Scholar Award Recipient</p>
         <ul>
           <li>Researching AI as a learning agent under the supervision of Dr. Heidaripour</li>
           <li>Exploring how “click-to-agree” systems shape habits, consent, and agency over time</li>
         </ul>
-        <a href="https://docs.google.com/document/d/1LBqOP4TrgpO3YYdVMAlrHSSzXmwKlqkayXrXVT2ecTM/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">
-          read winning paper →
+        <a href="https://drive.google.com/file/d/1N7rMYNZAFxpN0A8sBW1R74q0RqVUVIvG/view?usp=drive_link" target="_blank" rel="noreferrer" class="link-arrow">
+          read research paper →
         </a>
       </article>
 
@@ -183,94 +186,119 @@
     <section id="projects" class="section">
       <h2>Projects</h2>
 
-      <div class="featured-project">
+      <div class="featured-project-small">
         <div class="featured-badge">Senior Project</div>
-        <h3>SenAI: Scam Detection &amp; Digital Literacy Tool</h3>
+        <h3>SenAI: Scam Detection & Digital Literacy Tool</h3>
         <p class="muted">An accessible AI assistant designed to help older adults spot online scams.</p>
+
         <div class="project-links-row">
-          <a href="https://scholarlycommons.pacific.edu/soecs-projects/2025/events/42/" target="_blank" rel="noreferrer" class="button-small">
+          <a href="https://scholarlycommons.pacific.edu/urap/2025/Events/26/" target="_blank" rel="noreferrer" class="button-small">
             view project
           </a>
+
+          <!-- updated label + new link -->
           <a href="https://docs.google.com/document/d/1g3e0TSK6RVssCVCoAcVxpz1baVgnp-6sciYxMvkoyAs/edit?usp=sharing" target="_blank" rel="noreferrer" class="button-small button-outline">
-            research report
+            read winning paper
           </a>
         </div>
       </div>
 
       <div class="projects-grid">
-        <article class="project-card">
+        <article class="project-card-small">
           <div class="project-label">ENGR 174 • #1</div>
           <h3>AlertMate</h3>
           <p>Portable safety prototype built with Python + Fusion 360, designed for temporary housing contexts. Presented at a campus summit.</p>
-          <a href="https://www.canva.com/design/DAGD0i2I33Q/as-ZhFa3qrnWFJ0a_CiMBw/edit" target="_blank" rel="noreferrer" class="link-arrow">view project →</a>
+          <a href="https://www.canva.com/design/DAGD0i2I33Q/as-ZhFa3qrnWFJ0a_CiMBw/edit" target="_blank" rel="noreferrer" class="link-arrow">
+            view project →
+          </a>
         </article>
 
-        <article class="project-card">
+        <article class="project-card-small">
           <div class="project-label">COMP 55 • #2</div>
           <h3>PowerCat Game</h3>
           <p>Java game project focused on gameplay logic, UI flow, and team delivery. Awarded Best Game Development.</p>
           <div class="project-links">
-            <a href="https://docs.google.com/document/d/1j8nZha_-WDmiNEA-sNWunOjpisLLgYynmBk6zMI3fAo/edit" target="_blank" rel="noreferrer" class="link-arrow">view portfolio →</a>
-            <a href="https://github.com/Fall2024Comp55/team-project-cs-tigers" target="_blank" rel="noreferrer" class="link-arrow">view repository →</a>
+            <a href="https://docs.google.com/document/d/1j8nZha_-WDmiNEA-sNWunOjpisLLgYynmBk6zMI3fAo/edit" target="_blank" rel="noreferrer" class="link-arrow">
+              view portfolio →
+            </a>
+            <a href="https://github.com/Fall2024Comp55/team-project-cs-tigers" target="_blank" rel="noreferrer" class="link-arrow">
+              view repository →
+            </a>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card-small">
           <div class="project-label">COMP 283 • #3</div>
           <h3>Vulnerability Management</h3>
           <p>Vulnerability analysis, prioritization, and remediation planning deliverable.</p>
-          <a href="https://docs.google.com/document/d/11hd0eVrm0C1loyaqag7Qwv7cO5zTnubg9gQr08zVkEE/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">view portfolio →</a>
+          <a href="https://docs.google.com/document/d/11hd0eVrm0C1loyaqag7Qwv7cO5zTnubg9gQr08zVkEE/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">
+            view portfolio →
+          </a>
         </article>
 
-        <article class="project-card">
+        <article class="project-card-small">
           <div class="project-label">COMP 276 • #4</div>
           <h3>Incident Management</h3>
           <p>Incident response planning + SOC workflow concepts with structured reporting.</p>
-          <a href="https://docs.google.com/document/d/1vd_SXp6aVV8r8H4ukzqgaPjxwYePZDBHoKsS2btgs0A/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">view portfolio →</a>
+          <a href="https://docs.google.com/document/d/1vd_SXp6aVV8r8H4ukzqgaPjxwYePZDBHoKsS2btgs0A/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">
+            view portfolio →
+          </a>
         </article>
 
-        <article class="project-card">
+        <article class="project-card-small">
           <div class="project-label">COMP 162 • #5</div>
           <h3>Global Data Project</h3>
           <p>Analytics + visualization work using R with clear narrative + presentation.</p>
           <div class="project-links">
-            <a href="https://www.canva.com/design/DAGgvZLdxdA/EKcyCnB9nApxdE98ItnVKg/edit" target="_blank" rel="noreferrer" class="link-arrow">view presentation →</a>
-            <a href="https://github.com/faizahm1/COMP162_project" target="_blank" rel="noreferrer" class="link-arrow">view repository →</a>
+            <a href="https://www.canva.com/design/DAGgvZLdxdA/EKcyCnB9nApxdE98ItnVKg/edit" target="_blank" rel="noreferrer" class="link-arrow">
+              view presentation →
+            </a>
+            <a href="https://github.com/faizahm1/COMP162_project" target="_blank" rel="noreferrer" class="link-arrow">
+              view repository →
+            </a>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card-small">
           <div class="project-label">COMP 162 • #6</div>
           <h3>Cybersecurity Data Project</h3>
           <p>Data cleaning + analysis + visualization using Python with security-focused framing.</p>
-          <a href="https://www.canva.com/design/DAGkoUzyWJI/5nJnYnF_3ChLyB3dDXVSpg/edit" target="_blank" rel="noreferrer" class="link-arrow">view project →</a>
+          <a href="https://www.canva.com/design/DAGkoUzyWJI/5nJnYnF_3ChLyB3dDXVSpg/edit" target="_blank" rel="noreferrer" class="link-arrow">
+            view project →
+          </a>
         </article>
 
-        <article class="project-card">
+        <article class="project-card-small">
           <div class="project-label">COMP 135 • #7</div>
           <h3>TeaTime UI</h3>
           <p>Human-centered interface design presentation with usability + flow decisions.</p>
-          <a href="https://docs.google.com/presentation/d/18cZKy3ySDmx7nNhysLgF33BUqCWo3wel/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">view presentation →</a>
+          <a href="https://docs.google.com/presentation/d/18cZKy3ySDmx7nNhysLgF33BUqCWo3wel/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">
+            view presentation →
+          </a>
         </article>
 
-        <article class="project-card">
+        <article class="project-card-small">
           <div class="project-label">COMP 141 • #8</div>
-          <h3>Visual Basic &amp; VBA Project</h3>
+          <h3>Visual Basic & VBA Project</h3>
           <p>Programming languages exploration project with implementation + documentation.</p>
-          <a href="https://www.canva.com/design/DAGU4oFk9JM/KsFuhcCEk-WAY71vX40zdA/edit" target="_blank" rel="noreferrer" class="link-arrow">view project →</a>
+          <a href="https://www.canva.com/design/DAGU4oFk9JM/KsFuhcCEk-WAY71vX40zdA/edit" target="_blank" rel="noreferrer" class="link-arrow">
+            view project →
+          </a>
         </article>
 
-        <article class="project-card">
+        <article class="project-card-small">
           <div class="project-label">EMGT 170 • #9</div>
-          <h3>Decision Analysis (Spider Plots &amp; Tornado Diagrams)</h3>
+          <h3>Decision Analysis (Spider Plots & Tornado Diagrams)</h3>
           <p>Engineering project management assignment analyzing tradeoffs using sensitivity + decision visuals in Excel.</p>
-          <a href="spiderplots.tornadodiagrams.xlsx" class="link-arrow">view file →</a>
+          <a href="https://pacificedu-my.sharepoint.com/:x:/g/personal/f_muthana_u_pacific_edu/IQA3bX8BF2YwTqDGrcbmKAkTAXlHV_RCDeMjBwfPzVC3cX0?e=8uqtl6" target="_blank" rel="noreferrer" class="link-arrow">
+            view file →
+          </a>
         </article>
       </div>
     </section>
 
     <section id="volunteering" class="section">
-      <h2>Volunteering &amp; Community Impact</h2>
+      <h2>Volunteering & Community Impact</h2>
 
       <article class="timeline-item">
         <div class="timeline-header">
@@ -309,54 +337,42 @@
       </article>
     </section>
 
-    <section id="facts" class="section">
+    <section id="fun" class="section">
       <h2>Quick Facts</h2>
 
-      <div class="facts-grid">
-        <button class="fact-card" type="button" aria-label="favorite thing to bake">
+      <div class="fun-facts-grid">
+        <button class="fact-card" type="button">
           <span class="fact-inner">
             <span class="fact-front">
-              <span class="fact-heart" aria-hidden="true">
-                <svg viewBox="0 0 24 24" class="heart-svg">
-                  <path d="M12 21s-7-4.6-9.4-8.8C.7 8.7 2.5 5.7 5.8 5.2c1.9-.3 3.7.5 4.7 2 1-1.5 2.8-2.3 4.7-2 3.3.5 5.1 3.5 3.2 7C19 16.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <span class="fact-q">Favorite thing to bake?</span>
+              <span class="fact-heart" aria-hidden="true">♡</span>
+              <span>Favorite thing to bake?</span>
             </span>
             <span class="fact-back">
-              <span class="fact-a">chocolate chip cookies &amp; honeycomb bread</span>
+              <span>chocolate chip cookies & honeycomb bread</span>
             </span>
           </span>
         </button>
 
-        <button class="fact-card" type="button" aria-label="favorite coding language">
+        <button class="fact-card" type="button">
           <span class="fact-inner">
             <span class="fact-front">
-              <span class="fact-heart" aria-hidden="true">
-                <svg viewBox="0 0 24 24" class="heart-svg">
-                  <path d="M12 21s-7-4.6-9.4-8.8C.7 8.7 2.5 5.7 5.8 5.2c1.9-.3 3.7.5 4.7 2 1-1.5 2.8-2.3 4.7-2 3.3.5 5.1 3.5 3.2 7C19 16.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <span class="fact-q">Favorite coding language?</span>
+              <span class="fact-heart" aria-hidden="true">♡</span>
+              <span>Favorite coding language?</span>
             </span>
             <span class="fact-back">
-              <span class="fact-a">python</span>
+              <span>python</span>
             </span>
           </span>
         </button>
 
-        <button class="fact-card" type="button" aria-label="what do you write about">
+        <button class="fact-card" type="button">
           <span class="fact-inner">
             <span class="fact-front">
-              <span class="fact-heart" aria-hidden="true">
-                <svg viewBox="0 0 24 24" class="heart-svg">
-                  <path d="M12 21s-7-4.6-9.4-8.8C.7 8.7 2.5 5.7 5.8 5.2c1.9-.3 3.7.5 4.7 2 1-1.5 2.8-2.3 4.7-2 3.3.5 5.1 3.5 3.2 7C19 16.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <span class="fact-q">What do you write about?</span>
+              <span class="fact-heart" aria-hidden="true">♡</span>
+              <span>What do you write about?</span>
             </span>
             <span class="fact-back">
-              <span class="fact-a">identity &amp; growth</span>
+              <span>identity & growth</span>
             </span>
           </span>
         </button>
@@ -372,9 +388,11 @@
         <p><strong>GitHub:</strong> <a href="https://github.com/faizahm1" target="_blank" rel="noreferrer">github.com/faizahm1</a></p>
       </div>
     </section>
+
   </main>
 
   <footer>
+    <p>Thank you for visiting.</p>
     <p class="footer-small">© <span id="year"></span> Faizah Muthana</p>
   </footer>
 
