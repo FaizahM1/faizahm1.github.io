@@ -22,7 +22,7 @@ function applyTheme(theme) {
 (function initTheme() {
   // start dark mode by default, but remember user choice
   const saved = localStorage.getItem("theme");
-  applyTheme(saved || "blue");
+  applyTheme(saved || "brown");
 })();
 
 themeToggle.addEventListener("click", () => {
