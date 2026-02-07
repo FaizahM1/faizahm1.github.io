@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +9,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="brown-theme" id="top">
-  <nav class="navbar">
+<body class="brown-theme">
+  <nav class="navbar" id="top">
     <div class="nav-container">
       <a class="nav-logo" href="#top" aria-label="home">FM</a>
 
@@ -27,19 +27,18 @@
         <a href="#contact" data-section="contact">Contact</a>
 
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="toggle theme">
-          <span class="theme-heart" id="themeHeart" aria-hidden="true">♡</span>
-          <span class="theme-label" id="themeLabel">brown</span>
+          <span class="toggle-icon" aria-hidden="true"></span>
+          <span class="toggle-label" id="themeLabel">brown</span>
         </button>
       </div>
     </div>
-    <div class="nav-underline" aria-hidden="true"></div>
+    <div class="nav-divider" aria-hidden="true"></div>
   </nav>
 
   <header class="hero">
     <div class="hero-content">
       <h1 class="name">Faizah Muthana</h1>
       <p class="subtitle">Bachelor of Science in Computer Science</p>
-
       <div class="tagline-box">
         <p class="tagline">Using technology to help others</p>
       </div>
@@ -63,7 +62,7 @@
           </p>
         </div>
 
-        <div class="about-image" aria-label="baking cat sticker">
+        <div class="about-image">
           <img
             src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODcycTlpaW9yazl4emtuc283eGZvMjhqZnk0NTRkcXM1d3U5Y3RmYiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/K9Xy6osm73DbxIa8f2/giphy.gif"
             alt="baking cat"
@@ -89,18 +88,18 @@
           <h4>Relevant Coursework</h4>
 
           <div class="courses-grid">
-            <span class="course-tag"><span class="course-name">Data Structures</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Algorithms</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Operating Systems</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Computer Systems & Networks</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Network Security & Sys Admin</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Vulnerability Management</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Incident Response & Forensics</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Data Analytics Programming</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Human-Computer Interface Design</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Programming Languages</span><span class="course-grade">B</span></span>
-            <span class="course-tag"><span class="course-name">Computing Theory</span><span class="course-grade">A</span></span>
-            <span class="course-tag"><span class="course-name">Management Information Systems</span><span class="course-grade">A</span></span>
+            <span class="course-item"><span>Data Structures</span><strong>A</strong></span>
+            <span class="course-item"><span>Algorithms</span><strong>A</strong></span>
+            <span class="course-item"><span>Operating Systems</span><strong>A</strong></span>
+            <span class="course-item"><span>Computer Systems & Networks</span><strong>A</strong></span>
+            <span class="course-item"><span>Network Security & Sys Admin</span><strong>A</strong></span>
+            <span class="course-item"><span>Vulnerability Management</span><strong>A</strong></span>
+            <span class="course-item"><span>Incident Response & Forensics</span><strong>A</strong></span>
+            <span class="course-item"><span>Data Analytics Programming</span><strong>A</strong></span>
+            <span class="course-item"><span>Human-Computer Interface Design</span><strong>A</strong></span>
+            <span class="course-item"><span>Programming Languages</span><strong>B</strong></span>
+            <span class="course-item"><span>Computing Theory</span><strong>A</strong></span>
+            <span class="course-item"><span>Management Information Systems</span><strong>A</strong></span>
           </div>
         </div>
 
@@ -123,9 +122,7 @@
           <li>Researching AI as a learning agent under the supervision of Dr. Heidaripour</li>
           <li>Exploring how “click-to-agree” systems shape habits, consent, and agency over time</li>
         </ul>
-        <a href="https://drive.google.com/file/d/1N7rMYNZAFxpN0A8sBW1R74q0RqVUVIvG/view?usp=drive_link" target="_blank" rel="noreferrer" class="link-arrow">
-          read research paper →
-        </a>
+        <a class="link-arrow" href="https://drive.google.com/file/d/1N7rMYNZAFxpN0A8sBW1R74q0RqVUVIvG/view?usp=drive_link" target="_blank" rel="noreferrer">read research paper →</a>
       </article>
 
       <article class="timeline-item">
@@ -186,14 +183,9 @@
         <div class="featured-badge">Senior Project</div>
         <h3>SenAI: Scam Detection & Digital Literacy Tool</h3>
         <p class="muted">An accessible AI assistant designed to help older adults spot online scams.</p>
-
         <div class="project-links-row">
-          <a href="https://scholarlycommons.pacific.edu/urap/2025/Events/26/" target="_blank" rel="noreferrer" class="button-small">
-            view project
-          </a>
-          <a href="https://docs.google.com/document/d/1g3e0TSK6RVssCVCoAcVxpz1baVgnp-6sciYxMvkoyAs/edit?usp=sharing" target="_blank" rel="noreferrer" class="button-small button-outline">
-            research report
-          </a>
+          <a class="button" href="https://scholarlycommons.pacific.edu/urap/2025/Events/26/" target="_blank" rel="noreferrer">view project</a>
+          <a class="button outline" href="https://docs.google.com/document/d/1g3e0TSK6RVssCVCoAcVxpz1baVgnp-6sciYxMvkoyAs/edit?usp=sharing" target="_blank" rel="noreferrer">research report</a>
         </div>
       </div>
 
@@ -202,7 +194,7 @@
           <div class="project-label">ENGR 174 • #1</div>
           <h3>AlertMate</h3>
           <p>Portable safety prototype built with Python + Fusion 360, designed for temporary housing contexts. Presented at a campus summit.</p>
-          <a href="https://www.canva.com/design/DAGD0i2I33Q/as-ZhFa3qrnWFJ0a_CiMBw/edit" target="_blank" rel="noreferrer" class="link-arrow">view project →</a>
+          <a class="link-arrow" href="https://www.canva.com/design/DAGD0i2I33Q/as-ZhFa3qrnWFJ0a_CiMBw/edit" target="_blank" rel="noreferrer">view project →</a>
         </article>
 
         <article class="project-card">
@@ -210,8 +202,8 @@
           <h3>PowerCat Game</h3>
           <p>Java game project focused on gameplay logic, UI flow, and team delivery. Awarded Best Game Development.</p>
           <div class="project-links">
-            <a href="https://docs.google.com/document/d/1j8nZha_-WDmiNEA-sNWunOjpisLLgYynmBk6zMI3fAo/edit" target="_blank" rel="noreferrer" class="link-arrow">view portfolio →</a>
-            <a href="https://github.com/Fall2024Comp55/team-project-cs-tigers" target="_blank" rel="noreferrer" class="link-arrow">view repository →</a>
+            <a class="link-arrow" href="https://docs.google.com/document/d/1j8nZha_-WDmiNEA-sNWunOjpisLLgYynmBk6zMI3fAo/edit" target="_blank" rel="noreferrer">view portfolio →</a>
+            <a class="link-arrow" href="https://github.com/Fall2024Comp55/team-project-cs-tigers" target="_blank" rel="noreferrer">view repository →</a>
           </div>
         </article>
 
@@ -219,14 +211,14 @@
           <div class="project-label">COMP 283 • #3</div>
           <h3>Vulnerability Management</h3>
           <p>Vulnerability analysis, prioritization, and remediation planning deliverable.</p>
-          <a href="https://docs.google.com/document/d/11hd0eVrm0C1loyaqag7Qwv7cO5zTnubg9gQr08zVkEE/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">view portfolio →</a>
+          <a class="link-arrow" href="https://docs.google.com/document/d/11hd0eVrm0C1loyaqag7Qwv7cO5zTnubg9gQr08zVkEE/edit?usp=sharing" target="_blank" rel="noreferrer">view portfolio →</a>
         </article>
 
         <article class="project-card">
           <div class="project-label">COMP 276 • #4</div>
           <h3>Incident Management</h3>
           <p>Incident response planning + SOC workflow concepts with structured reporting.</p>
-          <a href="https://docs.google.com/document/d/1vd_SXp6aVV8r8H4ukzqgaPjxwYePZDBHoKsS2btgs0A/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">view portfolio →</a>
+          <a class="link-arrow" href="https://docs.google.com/document/d/1vd_SXp6aVV8r8H4ukzqgaPjxwYePZDBHoKsS2btgs0A/edit?usp=sharing" target="_blank" rel="noreferrer">view portfolio →</a>
         </article>
 
         <article class="project-card">
@@ -234,8 +226,7 @@
           <h3>Global Data Project</h3>
           <p>Analytics + visualization work using R with clear narrative + presentation.</p>
           <div class="project-links">
-            <a href="https://www.canva.com/design/DAGgvZLdxdA/EKcyCnB9nApxdE98ItnVKg/edit" target="_blank" rel="noreferrer" class="link-arrow">view presentation →</a>
-            <a href="https://github.com/faizahm1/COMP162_project" target="_blank" rel="noreferrer" class="link-arrow">view repository →</a>
+            <a class="link-arrow" href="https://github.com/faizahm1/COMP162_project" target="_blank" rel="noreferrer">view repository →</a>
           </div>
         </article>
 
@@ -243,28 +234,28 @@
           <div class="project-label">COMP 162 • #6</div>
           <h3>Cybersecurity Data Project</h3>
           <p>Data cleaning + analysis + visualization using Python with security-focused framing.</p>
-          <a href="https://www.canva.com/design/DAGkoUzyWJI/5nJnYnF_3ChLyB3dDXVSpg/edit" target="_blank" rel="noreferrer" class="link-arrow">view project →</a>
+          <a class="link-arrow" href="https://www.canva.com/design/DAGkoUzyWJI/5nJnYnF_3ChLyB3dDXVSpg/edit" target="_blank" rel="noreferrer">view project →</a>
         </article>
 
         <article class="project-card">
           <div class="project-label">COMP 135 • #7</div>
           <h3>TeaTime UI</h3>
           <p>Human-centered interface design presentation with usability + flow decisions.</p>
-          <a href="https://docs.google.com/presentation/d/18cZKy3ySDmx7nNhysLgF33BUqCWo3wel/edit?usp=sharing" target="_blank" rel="noreferrer" class="link-arrow">view presentation →</a>
+          <a class="link-arrow" href="https://docs.google.com/presentation/d/18cZKy3ySDmx7nNhysLgF33BUqCWo3wel/edit?usp=sharing" target="_blank" rel="noreferrer">view presentation →</a>
         </article>
 
         <article class="project-card">
           <div class="project-label">COMP 141 • #8</div>
           <h3>Visual Basic & VBA Project</h3>
           <p>Programming languages exploration project with implementation + documentation.</p>
-          <a href="https://www.canva.com/design/DAGU4oFk9JM/KsFuhcCEk-WAY71vX40zdA/edit" target="_blank" rel="noreferrer" class="link-arrow">view project →</a>
+          <a class="link-arrow" href="https://www.canva.com/design/DAGU4oFk9JM/KsFuhcCEk-WAY71vX40zdA/edit" target="_blank" rel="noreferrer">view project →</a>
         </article>
 
         <article class="project-card">
           <div class="project-label">EMGT 170 • #9</div>
           <h3>Decision Analysis (Spider Plots & Tornado Diagrams)</h3>
           <p>Engineering project management assignment analyzing tradeoffs using sensitivity + decision visuals in Excel.</p>
-          <a href="spiderplots.tornadodiagrams.xlsx" class="link-arrow">view file →</a>
+          <a class="link-arrow" href="spiderplots.tornadodiagrams.xlsx" target="_blank" rel="noreferrer">view file →</a>
         </article>
       </div>
     </section>
@@ -294,47 +285,39 @@
           <li>Mentored students and encouraged them to pursue higher education</li>
           <li>Created engaging math lesson plans for middle school students (6–8) to build confidence through creativity</li>
         </ul>
+        <a class="link-arrow" href="https://docs.google.com/document/d/1idd_Jg7akL92FjdEV7LzfTym7PNOmwUIlYxzLfPEIVk/edit?usp=sharing" target="_blank" rel="noreferrer">view lesson plan →</a>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-header">
+          <h3>CHASE Mentor</h3>
+          <span class="date">2021 – 2023</span>
+        </div>
+        <p class="company">Community Involvement Program (CIP)</p>
+        <ul>
+          <li>Encouraged students to pursue higher education and explore long-term goals</li>
+          <li>Supported STEM confidence through mentoring, structure, and consistency</li>
+        </ul>
       </article>
     </section>
 
     <section id="fun" class="section">
       <h2>Quick Facts</h2>
 
-      <div class="fun-facts-grid">
-        <button class="flip-card" type="button">
-          <span class="flip-card-inner">
-            <span class="flip-front">
-              <span class="fact-heart">♡</span>
-              <span>Favorite thing to bake?</span>
-            </span>
-            <span class="flip-back">
-              <span class="fact-answer">chocolate chip cookies & honeycomb bread</span>
-            </span>
-          </span>
+      <div class="facts-grid">
+        <button class="fact-card" type="button">
+          <span class="fact-q">Favorite thing to bake?</span>
+          <span class="fact-a">chocolate chip cookies & honeycomb bread</span>
         </button>
 
-        <button class="flip-card" type="button">
-          <span class="flip-card-inner">
-            <span class="flip-front">
-              <span class="fact-heart">♡</span>
-              <span>Favorite coding language?</span>
-            </span>
-            <span class="flip-back">
-              <span class="fact-answer">python</span>
-            </span>
-          </span>
+        <button class="fact-card" type="button">
+          <span class="fact-q">Favorite coding language?</span>
+          <span class="fact-a">python</span>
         </button>
 
-        <button class="flip-card" type="button">
-          <span class="flip-card-inner">
-            <span class="flip-front">
-              <span class="fact-heart">♡</span>
-              <span>What do you write about?</span>
-            </span>
-            <span class="flip-back">
-              <span class="fact-answer">identity & growth</span>
-            </span>
-          </span>
+        <button class="fact-card" type="button">
+          <span class="fact-q">What do you write about?</span>
+          <span class="fact-a">identity & growth</span>
         </button>
       </div>
     </section>
@@ -358,4 +341,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
