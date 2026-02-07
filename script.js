@@ -9,18 +9,23 @@ const themeToggle = document.getElementById("themeToggle");
 const themeLabel = document.getElementById("themeLabel");
 
 function currentTheme() {
-  return body.classList.contains("brown-theme") ? "brown" : "blue";
+  return body.classList.contains("blue-theme") ? "blue" : "brown";
 }
 
 function applyTheme(theme) {
-  body.classList.toggle("brown-theme", theme === "brown");
   body.classList.toggle("blue-theme", theme === "blue");
   themeLabel.textContent = theme;
   localStorage.setItem("theme", theme);
 }
 
+function themeConfettiColors(theme) {
+  return theme === "blue"
+    ? ["#0f2b3e", "#2b5f88", "#58a6ff"]
+    : ["#3b2d22", "#6b5636", "#8b6f47"];
+}
+
 (function initTheme() {
-  // start dark mode by default, but remember user choice
+  // start white by default
   const saved = localStorage.getItem("theme");
   applyTheme(saved || "brown");
 })();
@@ -30,12 +35,6 @@ themeToggle.addEventListener("click", () => {
   applyTheme(next);
   launchConfetti(themeConfettiColors(next), 55);
 });
-
-function themeConfettiColors(theme) {
-  return theme === "blue"
-    ? ["#0f2b3e", "#2b5f88", "#58a6ff"]
-    : ["#3b2d22", "#6b5636", "#8b6f47"];
-}
 
 // nav active highlight
 const sections = Array.from(document.querySelectorAll("section[id]"));
@@ -55,15 +54,10 @@ const io = new IntersectionObserver((entries) => {
 
 sections.forEach(s => io.observe(s));
 
-// quick facts flip + heart fill
+// quick facts flip + conffetti
 document.querySelectorAll(".fact-card").forEach(card => {
   card.addEventListener("click", (e) => {
     card.classList.toggle("flipped");
-
-    const heartPath = card.querySelector(".heart-svg path");
-    const flipped = card.classList.contains("flipped");
-    heartPath.setAttribute("fill", flipped ? "currentColor" : "none");
-
     burstConfettiAt(e.clientX, e.clientY, themeConfettiColors(currentTheme()), 14);
   });
 });
@@ -81,39 +75,19 @@ const gifUrls = [
 ];
 
 function spawnClickGif(x, y) {
-  if (Math.random() > 0.55) return;
+  if (Math.random() < 0.55) {
+    const gif = document.createElement("img");
+    gif.src = gifUrls[Math.floor(Math.random() * gifUrls.length)];
+    gif.className = "click-gif";
+    gif.style.left = `${x}px`;
+    gif.style.top = `${y}px`;
 
-  const gif = document.createElement("img");
-  gif.src = gifUrls[Math.floor(Math.random() * gifUrls.length)];
-  gif.className = "click-gif";
+    const spin = (Math.random() * 70 - 35).toFixed(1);
+    gif.style.setProperty("--spin", `${spin}deg`);
 
-  // start position
-  gif.style.left = `${x}px`;
-  gif.style.top = `${y}px`;
-
-  // gentle variation
-  const size = 56 + Math.random() * 18; // 56–74px
-  gif.style.width = `${size}px`;
-  gif.style.height = "auto";
-
-  document.body.appendChild(gif);
-
-  // float + drift + gentle spin
-  const duration = 2200 + Math.random() * 900; // 2.2–3.1s
-  const dx = (Math.random() * 120) - 60; // -60..60
-  const dy = 140 + Math.random() * 120;  // 140..260
-  const spin = (Math.random() * 140) - 70; // -70..70 deg
-
-  gif.animate(
-    [
-      { transform: "translate(-50%, -50%) scale(0.85)", opacity: 0 },
-      { transform: "translate(-50%, -58%) scale(1)", opacity: 1, offset: 0.18 },
-      { transform: `translate(calc(-50% + ${dx}px), calc(-50% - ${dy}px)) rotate(${spin}deg) scale(0.95)`, opacity: 0 }
-    ],
-    { duration, easing: "cubic-bezier(.2,.8,.2,1)", fill: "forwards" }
-  );
-
-  setTimeout(() => gif.remove(), duration + 80);
+    document.body.appendChild(gif);
+    setTimeout(() => gif.remove(), 3200);
+  }
 }
 
 document.addEventListener("dblclick", (e) => {
@@ -126,4 +100,56 @@ document.addEventListener("pointerdown", (e) => {
   const delta = now - lastTap;
   if (delta > 0 && delta < 320) spawnClickGif(e.clientX, e.clientY);
   lastTap = now;
+});
+
+// confetti helpers
+function launchConfetti(colors, count = 50) {
+  for (let i = 0; i < count; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.top = "-10px";
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+    const duration = 1700 + Math.random() * 1100;
+    const drift = (Math.random() * 120 - 60);
+
+    c.animate([
+      { transform: "translateY(0) translateX(0) rotate(0deg)", opacity: 0.9 },
+      { transform: `translateY(110vh) translateX(${drift}px) rotate(720deg)`, opacity: 0 }
+    ], { duration, easing: "linear", fill: "forwards" });
+
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), duration + 80);
+  }
+}
+
+function burstConfettiAt(x, y, colors, count = 12) {
+  for (let i = 0; i < count; i++) {
+    const piece = document.createElement("div");
+    piece.className = "confetti";
+    piece.style.left = `${x}px`;
+    piece.style.top = `${y}px`;
+    piece.style.position = "fixed";
+    piece.style.width = "8px";
+    piece.style.height = "8px";
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.opacity = "0.85";
+
+    const dx = (Math.random() * 140 - 70);
+    const dy = (Math.random() * 150 + 60);
+
+    piece.animate([
+      { transform: "translate(-50%, -50%) scale(1)", opacity: 0.9 },
+      { transform: `translate(${dx}px, ${-dy}px) rotate(${Math.random() * 720}deg) scale(0.9)`, opacity: 0 }
+    ], { duration: 600 + Math.random() * 320, easing: "cubic-bezier(.2,.8,.2,1)", fill: "forwards" });
+
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 1000);
+  }
+}
+
+// cover confetti
+window.addEventListener("load", () => {
+  launchConfetti(themeConfettiColors(currentTheme()), 45);
 });
