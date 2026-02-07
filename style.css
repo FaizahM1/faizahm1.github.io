@@ -562,7 +562,11 @@ body.blue-theme .label {
   font-weight: 700;
   text-align: center;
 }
-
+/* white text only for dark mode */
+body.blue-theme .fact-front,
+body.blue-theme .fact-back {
+  color: white;
+}
 body.blue-theme .fact-front,
 body.blue-theme .fact-back {
   box-shadow: 0 0 18px rgba(88, 166, 255, 0.12);
