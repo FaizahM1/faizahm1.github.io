@@ -1,3 +1,5 @@
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
+ 
 <body>
-
+ 
   <!-- nav -->
   <nav class="nav">
     <div class="nav-wrap">
-      <a href="#top" class="logo">fm ✦</a>
+      <a href="#top" class="logo">fm</a>
       <div class="nav-links">
         <a href="#about">about</a>
         <a href="#education">education</a>
@@ -22,38 +24,39 @@
         <a href="#volunteering">volunteering</a>
         <a href="#contact">contact</a>
         <button class="theme-btn" id="themeBtn" aria-label="toggle theme">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
       </div>
     </div>
   </nav>
-
+ 
   <!-- hero -->
   <section class="hero" id="top">
-    <div class="hero-text">
-      <h1>Faizah <em>Muthana</em></h1>
-      <p class="hero-sub">BS Computer Science · University of the Pacific '25 · Georgia Tech MS incoming</p>
-      <span class="hero-tag">using technology to help others ✦</span>
+    <img src="flower1.png" class="flower-tl" alt="">
+    <img src="flower2.png" class="flower-br" alt="">
+    <div class="hero-content">
+      <h1 id="heroName">Faizah Muthana</h1>
+      <p class="hero-sub">BS Computer Science · University of the Pacific '25 · MS CS incoming at Georgia Tech</p>
+      <span class="hero-tag">using technology to help others</span>
     </div>
-    <img src="faizah.png" alt="Faizah Muthana at graduation" class="hero-img">
   </section>
-
+ 
   <main class="main">
-
+ 
     <!-- about -->
     <section id="about" class="sec">
       <div class="sec-head"><h2>About</h2><div class="sec-line"></div></div>
-      <div class="about-grid">
+      <div class="about-wrap">
+        <img src="faizah.png" alt="Faizah Muthana" class="about-photo">
         <div class="about-text">
-          <p>i'm a computer science graduate interested in data science, data analysis, cybersecurity, and using technology to help people in real ways. my interest in tech became real through hands-on work — data analysis projects and research focused on AI and digital safety.</p>
-          <p class="highlight">outside of CS, i enjoy baking and writing. both give me space to think creatively and pay attention to detail in ways that carry over into everything i build.</p>
+          <p>Hello! I'm Faizah and I grew up in California where I attended UOP and earned my bachelor's in computer science (fall '25). I've spent the last few years researching data analysis and AI safety, and I'm now on the hunt for my first full-time role.</p>
+          <p>I'm really interested in the intersection of tech and social impact. Aside from code, you'll usually find me baking or writing. If you're working in data, research or AI and are open to connecting, I would love to hear how you got your start.</p>
         </div>
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODcycTlpaW9yazl4emtuc283eGZvMjhqZnk0NTRkcXM1d3U5Y3RmYiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/K9Xy6osm73DbxIa8f2/giphy.gif" alt="cat baking" class="about-gif">
       </div>
     </section>
-
+ 
     <!-- education -->
     <section id="education" class="sec">
       <div class="sec-head"><h2>Education</h2><div class="sec-line"></div></div>
@@ -66,8 +69,13 @@
           </div>
           <span class="date">Fall 2025</span>
         </div>
-        <div class="courses-box">
+ 
+        <!-- collapsible grades -->
+        <div class="courses-toggle" role="button" tabindex="0" aria-expanded="false">
           <h4>Relevant Coursework</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="courses-box">
           <div class="courses">
             <div class="course"><span>Data Structures</span><b>A</b></div>
             <div class="course"><span>Algorithms</span><b>A</b></div>
@@ -83,10 +91,11 @@
             <div class="course"><span>Management Information Systems</span><b>A</b></div>
           </div>
         </div>
+ 
         <p class="member"><strong>member of:</strong> SWE, MESA, Cybersecurity Club, Honors Program, Baking Club, SHPE</p>
       </div>
     </section>
-
+ 
     <!-- skills -->
     <section class="sec">
       <div class="sec-head"><h2>Skills</h2><div class="sec-line"></div></div>
@@ -105,11 +114,11 @@
         </div>
       </div>
     </section>
-
+ 
     <!-- experience -->
     <section id="experience" class="sec">
       <div class="sec-head"><h2>Experience</h2><div class="sec-line"></div></div>
-
+ 
       <div class="exp">
         <div class="exp-top">
           <h3>AI Research Assistant</h3>
@@ -120,10 +129,9 @@
           <li>Researching AI as a learning agent under the supervision of Dr. Heidaripour</li>
           <li>Exploring how "click-to-agree" systems shape habits, consent, and agency over time</li>
         </ul>
-        <!-- replace this href with your actual hosted PDF link -->
-        <a href="research-paper.pdf" download class="link">download paper →</a>
+        <button class="link" onclick="openPDF('research-paper.pdf', 'Research Paper')">view paper →</button>
       </div>
-
+ 
       <div class="exp">
         <div class="exp-top">
           <h3>STEM Tutor, Math Lab</h3>
@@ -135,7 +143,7 @@
           <li>Provided one-on-one and group tutoring to build confidence and improve performance</li>
         </ul>
       </div>
-
+ 
       <div class="exp">
         <div class="exp-top">
           <h3>Data Science Intern</h3>
@@ -148,7 +156,7 @@
           <li>Maintained tracking systems and shared ongoing insights to improve the matching process</li>
         </ul>
       </div>
-
+ 
       <div class="exp">
         <div class="exp-top">
           <h3>Office Assistant</h3>
@@ -160,7 +168,7 @@
           <li>Managed and cleaned large datasets in Excel, tracking 5,000+ regional contacts</li>
         </ul>
       </div>
-
+ 
       <div class="exp">
         <div class="exp-top">
           <h3>Data Support Fellow, AmeriCorps</h3>
@@ -173,54 +181,52 @@
         </ul>
       </div>
     </section>
-
+ 
     <!-- projects -->
     <section id="projects" class="sec">
       <div class="sec-head"><h2>Projects</h2><div class="sec-line"></div></div>
-
+ 
       <div class="featured">
         <span class="badge">Senior Project</span>
         <h3>SenAI: Scam Detection & Digital Literacy Tool</h3>
-        <p>An accessible AI assistant designed to help older adults spot online scams. Trained a DistilBERT transformer model on 100k+ labeled messages and built a full-stack deployment with explainability outputs for non-technical users.</p>
+        <p>An accessible AI assistant designed to help older adults spot online scams. Trained a DistilBERT transformer model on 100k+ labeled messages with full-stack deployment and explainability outputs.</p>
         <div class="btns">
           <a href="https://scholarlycommons.pacific.edu/soecs-projects/2025/events/42/" target="_blank" class="btn">view project</a>
-          <!-- download the paper PDF and host it in your repo, then update this link -->
-          <a href="senai-paper.pdf" download class="btn btn-out">download paper</a>
+          <button class="btn btn-out" onclick="openPDF('senai-paper.pdf', 'SenAI — Research Paper')">view paper</button>
         </div>
       </div>
-
+ 
       <div class="projects">
-
+ 
         <div class="proj">
           <span class="label">ENGR 174 · #1</span>
           <h3>AlertMate</h3>
           <p>Portable safety prototype built with Python + Fusion 360, designed for temporary housing contexts. Presented at a campus summit.</p>
-          <a href="https://www.canva.com/design/DAGD0i2I33Q/as-ZhFa3qrnWFJ0a_CiMBw/edit" target="_blank" class="link">view project →</a>
+          <button class="link" onclick="openPDF('alertmate.pdf', 'AlertMate — Project Portfolio')">view project →</button>
         </div>
-
+ 
         <div class="proj">
           <span class="label">COMP 55 · #2</span>
           <h3>PowerCat Game</h3>
           <p>Java game project focused on gameplay logic, UI flow, and team delivery. Awarded Best Game Development.</p>
-          <!-- save the doc as PDF and update these links -->
-          <a href="powercat-portfolio.pdf" download class="link">download portfolio →</a>
+          <button class="link" onclick="openPDF('powercat-portfolio.pdf', 'PowerCat Game — Portfolio')">view portfolio →</button>
           <a href="https://github.com/Fall2024Comp55/team-project-cs-tigers" target="_blank" class="link">view repository →</a>
         </div>
-
+ 
         <div class="proj">
           <span class="label">COMP 283 · #3</span>
           <h3>Vulnerability Management</h3>
           <p>Vulnerability analysis, prioritization, and remediation planning deliverable.</p>
-          <a href="vulnerability-management.pdf" download class="link">download portfolio →</a>
+          <button class="link" onclick="openPDF('vulnerability-management.pdf', 'Vulnerability Management')">view portfolio →</button>
         </div>
-
+ 
         <div class="proj">
           <span class="label">COMP 276 · #4</span>
           <h3>Incident Management</h3>
           <p>Incident response planning + SOC workflow concepts with structured reporting.</p>
-          <a href="incident-management.pdf" download class="link">download portfolio →</a>
+          <button class="link" onclick="openPDF('incident-management.pdf', 'Incident Management')">view portfolio →</button>
         </div>
-
+ 
         <div class="proj">
           <span class="label">COMP 162 · #5</span>
           <h3>Global Data Project</h3>
@@ -228,43 +234,42 @@
           <a href="https://www.canva.com/design/DAGgvZLdxdA/EKcyCnB9nApxdE98ItnVKg/edit" target="_blank" class="link">view presentation →</a>
           <a href="https://github.com/faizahm1/COMP162_project" target="_blank" class="link">view repository →</a>
         </div>
-
+ 
         <div class="proj">
           <span class="label">COMP 162 · #6</span>
           <h3>Cybersecurity Data Project</h3>
           <p>Data cleaning, analysis, and visualization using Python with security-focused framing.</p>
-          <a href="https://www.canva.com/design/DAGkoUzyWJI/5nJnYlF_3ChLyB3dDXVSpg/edit" target="_blank" class="link">view project →</a>
+          <a href="https://www.canva.com/design/DAGkoUzyWJI/5nJnYnF_3ChLyB3dDXVSpg/edit" target="_blank" class="link">view project →</a>
         </div>
-
+ 
         <div class="proj">
           <span class="label">COMP 135 · #7</span>
           <h3>TeaTime UI</h3>
           <p>Human-centered interface design presentation with usability and flow decisions.</p>
-          <a href="teatime-presentation.pdf" download class="link">download presentation →</a>
+          <button class="link" onclick="openPDF('teatime-presentation.pdf', 'TeaTime UI — Presentation')">view presentation →</button>
         </div>
-
+ 
         <div class="proj">
           <span class="label">COMP 141 · #8</span>
           <h3>Visual Basic & VBA Project</h3>
           <p>Programming languages exploration project with implementation and documentation.</p>
           <a href="https://www.canva.com/design/DAGU4oFk9JM/KsFuhcCEk-WAY71vX40zdA/edit" target="_blank" class="link">view project →</a>
         </div>
-
+ 
         <div class="proj">
           <span class="label">EMGT 170 · #9</span>
           <h3>Decision Analysis</h3>
           <p>Spider plots and tornado diagrams for sensitivity analysis in Excel.</p>
-          <!-- download from sharepoint and host in repo -->
-          <a href="decision-analysis.xlsx" download class="link">download file →</a>
+          <button class="link" onclick="openPDF('decision-analysis.pdf', 'Decision Analysis')">view file →</button>
         </div>
-
+ 
       </div>
     </section>
-
+ 
     <!-- volunteering -->
     <section id="volunteering" class="sec">
       <div class="sec-head"><h2>Volunteering</h2><div class="sec-line"></div></div>
-
+ 
       <div class="exp">
         <div class="exp-top">
           <h3>Arabic Tutor</h3>
@@ -275,7 +280,7 @@
           <li>Tutoring Arabic-speaking students in my community to build English confidence and communication skills</li>
         </ul>
       </div>
-
+ 
       <div class="exp">
         <div class="exp-top">
           <h3>Sparks Mentor</h3>
@@ -287,7 +292,7 @@
           <li>Created engaging math lesson plans for middle schoolers (6–8) to build confidence through creativity</li>
         </ul>
       </div>
-
+ 
       <div class="exp">
         <div class="exp-top">
           <h3>CHASE Mentor</h3>
@@ -300,32 +305,7 @@
         </ul>
       </div>
     </section>
-
-    <!-- quick facts -->
-    <section class="sec">
-      <div class="sec-head"><h2>Quick Facts</h2><div class="sec-line"></div></div>
-      <div class="facts">
-        <button class="fact" aria-label="flip card">
-          <span class="fact-in">
-            <span class="fact-front"><span class="heart">♡</span><span>favorite thing to bake?</span></span>
-            <span class="fact-back"><span>chocolate chip cookies & honeycomb bread</span></span>
-          </span>
-        </button>
-        <button class="fact" aria-label="flip card">
-          <span class="fact-in">
-            <span class="fact-front"><span class="heart">♡</span><span>favorite coding language?</span></span>
-            <span class="fact-back"><span>python ♡</span></span>
-          </span>
-        </button>
-        <button class="fact" aria-label="flip card">
-          <span class="fact-in">
-            <span class="fact-front"><span class="heart">♡</span><span>what do you write about?</span></span>
-            <span class="fact-back"><span>identity & growth</span></span>
-          </span>
-        </button>
-      </div>
-    </section>
-
+ 
     <!-- contact -->
     <section id="contact" class="sec">
       <div class="sec-head"><h2>Contact</h2><div class="sec-line"></div></div>
@@ -336,13 +316,27 @@
         <p><strong>linkedin</strong> — <a href="https://linkedin.com/in/faizahmuthana" target="_blank">linkedin.com/in/faizahmuthana</a></p>
       </div>
     </section>
-
+ 
   </main>
-
+ 
   <footer>
-    <p>© <span id="year"></span> faizah muthana ✦ made with care</p>
+    <p>© <span id="year"></span> Faizah Muthana</p>
   </footer>
-
+ 
+  <!-- pdf modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modalTitle"></span>
+        <button class="modal-close" id="modalClose" aria-label="close">✕</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="modalFrame" title="document preview"></iframe>
+      </div>
+    </div>
+  </div>
+ 
   <script src="script.js"></script>
 </body>
 </html>
+ 
