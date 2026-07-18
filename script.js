@@ -1,87 +1,91 @@
 Script · JS
-// year in footer
+// year
 document.getElementById('year').textContent = new Date().getFullYear();
  
-// theme toggle
-const btn = document.getElementById('themeBtn');
-btn.addEventListener('click', () => {
+// night mode
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('night');
-  confetti(document.body.classList.contains('night'));
+  confetti();
 });
  
-// flip cards
-document.querySelectorAll('.fact').forEach(f => {
-  f.addEventListener('click', e => {
-    f.classList.toggle('flip');
-    burst(e.clientX, e.clientY);
+// name squiggle on click
+const heroName = document.getElementById('heroName');
+if (heroName) {
+  heroName.addEventListener('click', () => {
+    heroName.classList.remove('squiggle');
+    void heroName.offsetWidth; // reflow
+    heroName.classList.add('squiggle');
+  });
+}
+ 
+// collapsible courses
+document.querySelectorAll('.courses-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    const box = toggle.nextElementSibling;
+    box.classList.toggle('open');
   });
 });
  
-// mini burst on card flip
-function burst(x, y) {
-  const night = document.body.classList.contains('night');
-  const colors = night ? ['#e8907a', '#c47060'] : ['#c4745a', '#e8a090', '#8fa68a'];
-  for (let i = 0; i < 10; i++) {
-    const c = document.createElement('div');
-    c.className = 'confetti';
-    c.style.cssText = `left:${x}px;top:${y}px;background:${colors[i % colors.length]};border-radius:${Math.random() > 0.5 ? '50%' : '2px'}`;
-    const dx = (Math.random() - 0.5) * 100;
-    const dy = -(Math.random() * 90 + 30);
-    c.animate([
-      { transform: 'translate(-50%,-50%) scale(1)', opacity: 1 },
-      { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.5)`, opacity: 0 }
-    ], { duration: 550, easing: 'cubic-bezier(0.2,0.8,0.2,1)', fill: 'forwards' });
-    document.body.appendChild(c);
-    setTimeout(() => c.remove(), 560);
-  }
+// pdf modal
+const overlay = document.getElementById('modalOverlay');
+const modalTitle = document.getElementById('modalTitle');
+const modalFrame = document.getElementById('modalFrame');
+ 
+function openPDF(url, title) {
+  modalTitle.textContent = title;
+  modalFrame.src = url;
+  overlay.classList.add('open');
 }
  
-// double-click gifs
-const gifs = [
-  'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHlobGs4MXg2YWhmcHZscDQzMWR5cno2bWFtNjhqZW45a2g3Z2ptayZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/WRXNJYnmTfaCUsU4Sw/giphy.gif',
-  'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHlobGs4MXg2YWhmcHZscDQzMWR5cno2bWFtNjhqZW45a2g3Z2ptayZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/nrSRWL9TNU3LiSKznp/giphy.gif',
-  'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHlobGs4MXg2YWhmcHZscDQzMWR5cno2bWFtNjhqZW45a2g3Z2ptayZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/2TS9xzVB4DSzYNFcWO/giphy.gif',
-  'https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bWl1Z3cybWxkeDc4azMxcHg4eDBhMDg1MzJjMTdyanhmNDhwNWd2YiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/RNRPgP2ntCu1jva1VY/giphy.gif',
-  'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWJjZ2ZvNm1xampxdml5NTVxcWdmMXNrbmxxcDRpZ2Vwb3Jqc2ZkeCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/mG2pJcdFjjePzeHmVi/giphy.gif',
-  'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmI2cWVnc2p0cHllZzMwZHZyZmZmdGJsdXNyb205ZWRxM3FvajE4NyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/GZ1kHk53BUdDXsQWmP/giphy.gif',
-  'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWVyOHgzcmdhZHdmcmJiaXJodDdmODl6NXRteWQ2aDloeml6MnoyYSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/1nc2JAjeYlG2VhXH2Z/giphy.gif'
-];
- 
-function spawnGif(x, y) {
-  const g = document.createElement('img');
-  g.src = gifs[Math.floor(Math.random() * gifs.length)];
-  g.className = 'gif';
-  g.style.left = x + 'px';
-  g.style.top = y + 'px';
-  document.body.appendChild(g);
-  setTimeout(() => g.remove(), 2800);
+function closeModal() {
+  overlay.classList.remove('open');
+  setTimeout(() => { modalFrame.src = ''; }, 300);
 }
  
-document.addEventListener('dblclick', e => spawnGif(e.clientX, e.clientY));
+document.getElementById('modalClose').addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
  
-// tap-to-tap double tap on mobile
+// floating flowers on double click
+const flowers = ['flower1.png', 'flower2.png'];
+ 
+function spawnFlower(x, y) {
+  const img = document.createElement('img');
+  img.src = flowers[Math.floor(Math.random() * flowers.length)];
+  img.className = 'float-flower';
+  img.style.left = x + 'px';
+  img.style.top = y + 'px';
+  document.body.appendChild(img);
+  setTimeout(() => img.remove(), 2800);
+}
+ 
+document.addEventListener('dblclick', e => spawnFlower(e.clientX, e.clientY));
+ 
 let lastTap = 0;
 document.addEventListener('touchend', e => {
   const now = Date.now();
-  if (now - lastTap < 300) spawnGif(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+  if (now - lastTap < 300) spawnFlower(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
   lastTap = now;
 });
  
-// confetti rain on theme switch
-function confetti(night) {
+// confetti on theme switch
+function confetti() {
+  const night = document.body.classList.contains('night');
   const colors = night
-    ? ['#0d0b09', '#e8907a', '#2a2420']
-    : ['#c4745a', '#e8a090', '#8fa68a', '#f9f6f2'];
-  for (let i = 0; i < 55; i++) {
+    ? ['#6b1a1a', '#f5ede0', '#a03030']
+    : ['#6b1a1a', '#8b2a2a', '#f5ede0', '#ddd4c4'];
+  for (let i = 0; i < 50; i++) {
     const c = document.createElement('div');
     c.className = 'confetti';
-    const size = 6 + Math.random() * 6;
-    c.style.cssText = `left:${Math.random()*100}vw;top:-12px;width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>0.5?'50%':'3px'}`;
-    const dur = 1600 + Math.random() * 900;
-    const dx = (Math.random() - 0.5) * 80;
+    const size = 6 + Math.random() * 5;
+    c.style.cssText = `left:${Math.random()*100}vw;top:-10px;width:${size}px;height:${size}px;background:${colors[i%colors.length]};border-radius:${Math.random()>0.5?'50%':'2px'};position:fixed`;
+    const dur = 1500 + Math.random() * 800;
+    const dx = (Math.random() - 0.5) * 70;
     c.animate([
       { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
-      { transform: `translateY(110vh) translateX(${dx}px) rotate(${360 + Math.random()*360}deg)`, opacity: 0 }
+      { transform: `translateY(110vh) translateX(${dx}px) rotate(360deg)`, opacity: 0 }
     ], { duration: dur, easing: 'linear' });
     document.body.appendChild(c);
     setTimeout(() => c.remove(), dur);
@@ -89,5 +93,5 @@ function confetti(night) {
 }
  
 // confetti on load
-window.addEventListener('load', () => setTimeout(() => confetti(false), 400));
+window.addEventListener('load', () => setTimeout(confetti, 500));
  
