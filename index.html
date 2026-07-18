@@ -1,17 +1,15 @@
-Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Faizah Muthana</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
- 
+
 <body>
- 
-  <!-- nav -->
+
   <nav class="nav">
     <div class="nav-wrap">
       <a href="#top" class="logo">fm</a>
@@ -23,47 +21,118 @@ Index · HTML
         <a href="#volunteering">volunteering</a>
         <a href="#contact">contact</a>
         <button class="theme-btn" id="themeBtn" aria-label="toggle theme">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
       </div>
     </div>
   </nav>
- 
+
   <!-- hero -->
   <section class="hero" id="top">
     <img src="flower1.png" class="flower-tl" alt="">
     <img src="flower2.png" class="flower-br" alt="">
- 
-    <!-- photo overlay on name click -->
+
     <div class="photo-overlay" id="photoOverlay">
-      <button class="photo-close" id="photoClose">✕</button>
-      <img src="faizah.png" alt="Faizah Muthana">
+      <div class="photo-overlay-inner">
+        <button class="photo-close" id="photoClose">✕</button>
+        <img src="faizah.png" alt="Faizah Muthana">
+      </div>
     </div>
- 
+
     <div class="hero-content">
       <h1 id="heroName">Faizah Muthana</h1>
       <div class="hero-divider"></div>
       <p class="hero-sub">BS Computer Science · University of the Pacific '25 · MS CS incoming at Georgia Tech</p>
-      <span class="hero-tag">using technology to help others</span>
+      <span class="hero-tag">using technology to help others ♡</span>
     </div>
   </section>
- 
+
   <main class="main">
- 
+
     <!-- about -->
     <section id="about" class="sec">
       <div class="sec-head"><h2>About</h2><div class="sec-line"></div></div>
       <div class="about-wrap">
-        <img src="faizah.png" alt="Faizah Muthana" class="about-photo">
+        <div class="about-photo-wrap">
+          <img src="faizah.png" alt="Faizah Muthana" class="about-photo">
+        </div>
         <div class="about-text">
           <p>Hello! I'm Faizah and I grew up in California where I attended UOP and earned my bachelor's in computer science (fall '25). I've spent the last few years researching data analysis and AI safety, and I'm now on the hunt for my first full-time role.</p>
-          <p>I'm really interested in the intersection of tech and social impact. Aside from code, you'll usually find me baking or writing. If you're working in data, research or AI and are open to connecting, I would love to hear how you got your start.</p>
+          <p>I'm really interested in the intersection of tech and social impact. Aside from code, you'll usually find me baking or writing. If you're working in data, research or AI and are open to connecting, I would love to hear how you got your start ♡</p>
+          <p style="font-size:0.8rem; color:var(--text2); margin-top:0.5rem; opacity:0.8;">Member of: Rewriting the Code · Society of Women Engineers · MESA · SHPE · Cybersecurity Club · Honors Program · Baking Club</p>
         </div>
       </div>
     </section>
- 
+
+    <!-- experience -->
+    <section id="experience" class="sec">
+      <div class="sec-head"><h2>Experience</h2><div class="sec-line"></div></div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <h3>AI Research Assistant</h3>
+          <span class="date">Aug 2025 – Present</span>
+        </div>
+        <p class="company">University of the Pacific · Undergraduate Research Scholar Award Recipient</p>
+        <ul>
+          <li>Researching AI as a learning agent under the supervision of Dr. Heidaripour</li>
+          <li>Exploring how "click-to-agree" systems shape habits, consent, and agency over time</li>
+        </ul>
+        <button class="link" onclick="openPDF('research-paper.pdf','Research Paper')">view paper →</button>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <h3>Data Science Intern</h3>
+          <span class="date">Apr 2024 – Jun 2024</span>
+        </div>
+        <p class="company">World Relief, Sacramento</p>
+        <ul>
+          <li>Used Python and R to clean, analyze, and visualize job data across 10,000+ listings</li>
+          <li>Matched clients to job opportunities aligned with their skills and goals</li>
+          <li>Maintained tracking systems and shared ongoing insights to improve the matching process</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <h3>STEM Tutor, Math Lab</h3>
+          <span class="date">Jan 2024 – May 2025</span>
+        </div>
+        <p class="company">University of the Pacific</p>
+        <ul>
+          <li>Supported a first-generation student program serving 200+ students across coding, math, and engineering</li>
+          <li>Provided one-on-one and group tutoring to build confidence and improve performance</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <h3>Data Support Fellow, AmeriCorps</h3>
+          <span class="date">Aug 2022 – May 2023</span>
+        </div>
+        <p class="company">Visionary Home Builders</p>
+        <ul>
+          <li>Managed confidential client data in Yardi to support housing placement workflows</li>
+          <li>Supported placement of 300+ families into affordable housing</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <h3>Office Assistant</h3>
+          <span class="date">Aug 2021 – Aug 2022</span>
+        </div>
+        <p class="company">Westgate Center for Leadership, Eberhardt School of Business</p>
+        <ul>
+          <li>Conducted national outreach across all 50 states to expand the center's network</li>
+          <li>Managed and cleaned large datasets in Excel, tracking 5,000+ regional contacts</li>
+        </ul>
+      </div>
+    </section>
+
     <!-- education -->
     <section id="education" class="sec">
       <div class="sec-head"><h2>Education</h2><div class="sec-line"></div></div>
@@ -76,7 +145,7 @@ Index · HTML
           </div>
           <span class="date">Fall 2025</span>
         </div>
-        <div class="courses-toggle" role="button" tabindex="0" aria-expanded="false">
+        <div class="courses-toggle" role="button" tabindex="0" aria-expanded="true">
           <h4>Relevant Coursework</h4>
           <span class="toggle-icon">▼</span>
         </div>
@@ -99,7 +168,7 @@ Index · HTML
         <p class="member"><strong>member of:</strong> SWE, MESA, Cybersecurity Club, Honors Program, Baking Club, SHPE</p>
       </div>
     </section>
- 
+
     <!-- skills -->
     <section class="sec">
       <div class="sec-head"><h2>Skills</h2><div class="sec-line"></div></div>
@@ -118,190 +187,99 @@ Index · HTML
         </div>
       </div>
     </section>
- 
-    <!-- experience -->
-    <section id="experience" class="sec">
-      <div class="sec-head"><h2>Experience</h2><div class="sec-line"></div></div>
- 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>AI Research Assistant</h3>
-          <span class="date">Aug 2025 – Present</span>
-        </div>
-        <p class="company">University of the Pacific · Undergraduate Research Scholar Award Recipient</p>
-        <ul>
-          <li>Researching AI as a learning agent under the supervision of Dr. Heidaripour</li>
-          <li>Exploring how "click-to-agree" systems shape habits, consent, and agency over time</li>
-        </ul>
-        <button class="link" onclick="openPDF('research-paper.pdf', 'Research Paper')">view paper →</button>
-      </div>
- 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>STEM Tutor, Math Lab</h3>
-          <span class="date">Jan 2024 – May 2025</span>
-        </div>
-        <p class="company">University of the Pacific</p>
-        <ul>
-          <li>Supported a first-generation student program serving 200+ students across coding, math, and engineering</li>
-          <li>Provided one-on-one and group tutoring to build confidence and improve performance</li>
-        </ul>
-      </div>
- 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>Data Science Intern</h3>
-          <span class="date">Apr 2024 – Jun 2024</span>
-        </div>
-        <p class="company">World Relief, Sacramento</p>
-        <ul>
-          <li>Used Python and R to clean, analyze, and visualize job data across 10,000+ listings</li>
-          <li>Matched clients to job opportunities aligned with their skills and goals</li>
-          <li>Maintained tracking systems and shared ongoing insights to improve the matching process</li>
-        </ul>
-      </div>
- 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>Office Assistant</h3>
-          <span class="date">Aug 2021 – Aug 2022</span>
-        </div>
-        <p class="company">Westgate Center for Leadership, Eberhardt School of Business</p>
-        <ul>
-          <li>Conducted national outreach across all 50 states to expand the center's network</li>
-          <li>Managed and cleaned large datasets in Excel, tracking 5,000+ regional contacts</li>
-        </ul>
-      </div>
- 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>Data Support Fellow, AmeriCorps</h3>
-          <span class="date">Aug 2022 – May 2023</span>
-        </div>
-        <p class="company">Visionary Home Builders</p>
-        <ul>
-          <li>Managed confidential client data in Yardi to support housing placement workflows</li>
-          <li>Supported placement of 300+ families into affordable housing</li>
-        </ul>
-      </div>
-    </section>
- 
+
     <!-- projects -->
     <section id="projects" class="sec">
       <div class="sec-head"><h2>Projects</h2><div class="sec-line"></div></div>
- 
+
       <div class="featured">
         <span class="badge">Senior Project</span>
         <h3>SenAI: Scam Detection & Digital Literacy Tool</h3>
         <p>An accessible AI assistant designed to help older adults spot online scams. Trained a DistilBERT transformer model on 100k+ labeled messages with full-stack deployment and explainability outputs.</p>
         <div class="btns">
           <a href="https://scholarlycommons.pacific.edu/soecs-projects/2025/events/42/" target="_blank" class="btn">view project</a>
-          <button class="btn btn-out" onclick="openPDF('senai-paper.pdf', 'SenAI — Research Paper')">view paper</button>
+          <button class="btn btn-out" onclick="openPDF('senai-paper.pdf','SenAI — Research Paper')">view paper</button>
         </div>
       </div>
- 
+
       <div class="projects">
- 
         <div class="proj">
           <span class="label">ENGR 174 · #1</span>
           <h3>AlertMate</h3>
           <p>Portable safety prototype built with Python + Fusion 360, designed for temporary housing contexts. Presented at a campus summit.</p>
-          <button class="link" onclick="openPDF('alertmate.pdf', 'AlertMate — Project Portfolio')">view project →</button>
+          <button class="link" onclick="openPDF('alertmate.pdf','AlertMate — Project Portfolio')">view project →</button>
         </div>
- 
         <div class="proj">
           <span class="label">COMP 55 · #2</span>
           <h3>PowerCat Game</h3>
           <p>Java game project focused on gameplay logic, UI flow, and team delivery. Awarded Best Game Development.</p>
-          <button class="link" onclick="openPDF('powercat-portfolio.pdf', 'PowerCat Game — Portfolio')">view portfolio →</button>
+          <button class="link" onclick="openPDF('powercat-portfolio.pdf','PowerCat Game')">view portfolio →</button>
           <a href="https://github.com/Fall2024Comp55/team-project-cs-tigers" target="_blank" class="link">view repository →</a>
         </div>
- 
         <div class="proj">
           <span class="label">COMP 283 · #3</span>
           <h3>Vulnerability Management</h3>
           <p>Vulnerability analysis, prioritization, and remediation planning deliverable.</p>
-          <button class="link" onclick="openPDF('vulnerability-management.pdf', 'Vulnerability Management')">view portfolio →</button>
+          <button class="link" onclick="openPDF('vulnerability-management.pdf','Vulnerability Management')">view portfolio →</button>
         </div>
- 
         <div class="proj">
           <span class="label">COMP 276 · #4</span>
           <h3>Incident Management</h3>
           <p>Incident response planning + SOC workflow concepts with structured reporting.</p>
-          <button class="link" onclick="openPDF('incident-management.pdf', 'Incident Management')">view portfolio →</button>
+          <button class="link" onclick="openPDF('incident-management.pdf','Incident Management')">view portfolio →</button>
         </div>
- 
         <div class="proj">
           <span class="label">COMP 162 · #5</span>
           <h3>Global Data Project</h3>
           <p>Analytics + visualization work using R with clear narrative and presentation.</p>
-          <button class="link" onclick="openPDF('globalData.pdf', 'Global Data Project')">view presentation →</button>
+          <button class="link" onclick="openPDF('globalData.pdf','Global Data Project')">view presentation →</button>
           <a href="https://github.com/faizahm1/COMP162_project" target="_blank" class="link">view repository →</a>
         </div>
- 
         <div class="proj">
           <span class="label">COMP 162 · #6</span>
           <h3>Cybersecurity Data Project</h3>
           <p>Data cleaning, analysis, and visualization using Python with security-focused framing.</p>
-          <button class="link" onclick="openPDF('cyberDataPoster.pdf', 'Cybersecurity Data Project')">view project →</button>
+          <button class="link" onclick="openPDF('cyberDataPoster.pdf','Cybersecurity Data Project')">view project →</button>
         </div>
- 
         <div class="proj">
           <span class="label">COMP 135 · #7</span>
           <h3>TeaTime UI</h3>
           <p>Human-centered interface design presentation with usability and flow decisions.</p>
-          <button class="link" onclick="openPDF('teatime-presentation.pdf', 'TeaTime UI — Presentation')">view presentation →</button>
+          <button class="link" onclick="openPDF('teatime-presentation.pdf','TeaTime UI')">view presentation →</button>
         </div>
- 
         <div class="proj">
           <span class="label">COMP 141 · #8</span>
           <h3>Visual Basic & VBA Project</h3>
           <p>Programming languages exploration project with implementation and documentation.</p>
-          <button class="link" onclick="openPDF('visualBasic.pdf', 'Visual Basic & VBA Project')">view project →</button>
+          <button class="link" onclick="openPDF('visualBasic.pdf','Visual Basic & VBA Project')">view project →</button>
         </div>
- 
         <div class="proj">
           <span class="label">EMGT 170 · #9</span>
           <h3>Decision Analysis</h3>
           <p>Spider plots and tornado diagrams for sensitivity analysis in Excel.</p>
-          <button class="link" onclick="openPDF('decision-analysis.pdf', 'Decision Analysis')">view file →</button>
+          <button class="link" onclick="openPDF('decision-analysis.pdf','Decision Analysis')">view file →</button>
         </div>
- 
       </div>
     </section>
- 
+
     <!-- volunteering -->
     <section id="volunteering" class="sec">
       <div class="sec-head"><h2>Volunteering</h2><div class="sec-line"></div></div>
- 
       <div class="exp">
-        <div class="exp-top">
-          <h3>Arabic Tutor</h3>
-          <span class="date">2019 – Present</span>
-        </div>
+        <div class="exp-top"><h3>Arabic Tutor</h3><span class="date">2019 – Present</span></div>
         <p class="company">Private Practice</p>
-        <ul>
-          <li>Tutoring Arabic-speaking students in my community to build English confidence and communication skills</li>
-        </ul>
+        <ul><li>Tutoring Arabic-speaking students in my community to build English confidence and communication skills</li></ul>
       </div>
- 
       <div class="exp">
-        <div class="exp-top">
-          <h3>Sparks Mentor</h3>
-          <span class="date">2024 – 2025</span>
-        </div>
+        <div class="exp-top"><h3>Sparks Mentor</h3><span class="date">2024 – 2025</span></div>
         <p class="company">Community Involvement Program</p>
         <ul>
           <li>Mentored students and encouraged them to pursue higher education</li>
           <li>Created engaging math lesson plans for middle schoolers (6–8) to build confidence through creativity</li>
         </ul>
       </div>
- 
       <div class="exp">
-        <div class="exp-top">
-          <h3>CHASE Mentor</h3>
-          <span class="date">2021 – 2023</span>
-        </div>
+        <div class="exp-top"><h3>CHASE Mentor</h3><span class="date">2021 – 2023</span></div>
         <p class="company">Community Involvement Program</p>
         <ul>
           <li>Encouraged students to pursue higher education and explore long-term goals</li>
@@ -309,7 +287,7 @@ Index · HTML
         </ul>
       </div>
     </section>
- 
+
     <!-- contact -->
     <section id="contact" class="sec">
       <div class="sec-head"><h2>Contact</h2><div class="sec-line"></div></div>
@@ -320,28 +298,25 @@ Index · HTML
         <p><strong>linkedin</strong> — <a href="https://linkedin.com/in/faizahmuthana" target="_blank">linkedin.com/in/faizahmuthana</a></p>
       </div>
     </section>
- 
+
   </main>
- 
-  <!-- footerr -->
+
   <footer>
     <p>© <span id="year"></span> Faizah Muthana</p>
   </footer>
- 
-  <!-- pdf modal -->
+
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
       <div class="modal-header">
         <span class="modal-title" id="modalTitle"></span>
-        <button class="modal-close" id="modalClose" aria-label="close">✕</button>
+        <button class="modal-close" id="modalClose">✕</button>
       </div>
       <div class="modal-body">
         <iframe id="modalFrame" title="document preview"></iframe>
       </div>
     </div>
   </div>
- 
+
   <script src="script.js"></script>
 </body>
 </html>
- 
