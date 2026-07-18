@@ -1,322 +1,485 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Faizah Muthana</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
-<body>
+:root {
+  --red: #5c1212;
+  --red2: #7a1a1a;
+  --red3: #9b2222;
+  --cream: #f7f2ea;
+  --cream2: #faf6f0;
+  --cream3: #ede6d8;
+  --text: #1a0a0a;
+  --text2: #6b4a3a;
+  --border: #ddd0bc;
+  --card-bg: rgba(255,248,238,0.7);
+  --card-border: rgba(92,18,18,0.15);
+}
 
-  <nav class="nav">
-    <div class="nav-wrap">
-      <a href="#top" class="logo">fm</a>
-      <div class="nav-links">
-        <a href="#about">about</a>
-        <a href="#education">education</a>
-        <a href="#experience">experience</a>
-        <a href="#projects">projects</a>
-        <a href="#volunteering">volunteering</a>
-        <a href="#contact">contact</a>
-        <button class="theme-btn" id="themeBtn" aria-label="toggle theme">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </nav>
+body.night {
+  --red: #c44040;
+  --red2: #d45050;
+  --red3: #e06060;
+  --cream: #1a0808;
+  --cream2: #220c0c;
+  --cream3: #2e1010;
+  --text: #f5ede0;
+  --text2: #c4a090;
+  --border: #4a2020;
+  --card-bg: rgba(40,10,10,0.6);
+  --card-border: rgba(196,64,64,0.2);
+}
 
-  <!-- hero -->
-  <section class="hero" id="top">
-    <img src="flower1.png" class="flower-tl" alt="">
-    <img src="flower2.png" class="flower-br" alt="">
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-    <div class="photo-overlay" id="photoOverlay">
-      <div class="photo-overlay-inner">
-        <button class="photo-close" id="photoClose">✕</button>
-        <img src="faizah.png" alt="Faizah Muthana">
-      </div>
-    </div>
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.65;
+  transition: background 0.5s, color 0.5s;
+}
 
-    <div class="hero-content">
-      <h1 id="heroName">Faizah Muthana</h1>
-      <div class="hero-divider"></div>
-      <p class="hero-sub">BS Computer Science · University of the Pacific '25 · MS CS incoming at Georgia Tech</p>
-      <span class="hero-tag">using technology to help others ♡</span>
-    </div>
-  </section>
+/* nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--cream) 88%, transparent);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
 
-  <main class="main">
+.nav-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    <!-- about -->
-    <section id="about" class="sec">
-      <div class="sec-head"><h2>About</h2><div class="sec-line"></div></div>
-      <div class="about-wrap">
-        <div class="about-photo-wrap">
-          <img src="faizah.png" alt="Faizah Muthana" class="about-photo">
-        </div>
-        <div class="about-text">
-          <p>Hello! I'm Faizah and I grew up in California where I attended UOP and earned my bachelor's in computer science (fall '25). I've spent the last few years researching data analysis and AI safety, and I'm now on the hunt for my first full-time role.</p>
-          <p>I'm really interested in the intersection of tech and social impact. Aside from code, you'll usually find me baking or writing. If you're working in data, research or AI and are open to connecting, I would love to hear how you got your start ♡</p>
-          <p style="font-size:0.8rem; color:var(--text2); margin-top:0.5rem; opacity:0.8;">Member of: Rewriting the Code · Society of Women Engineers · MESA · SHPE · Cybersecurity Club · Honors Program · Baking Club</p>
-        </div>
-      </div>
-    </section>
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--red);
+  text-decoration: none;
+}
 
-    <!-- experience -->
-    <section id="experience" class="sec">
-      <div class="sec-head"><h2>Experience</h2><div class="sec-line"></div></div>
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>AI Research Assistant</h3>
-          <span class="date">Aug 2025 – Present</span>
-        </div>
-        <p class="company">University of the Pacific · Undergraduate Research Scholar Award Recipient</p>
-        <ul>
-          <li>Researching AI as a learning agent under the supervision of Dr. Heidaripour</li>
-          <li>Exploring how "click-to-agree" systems shape habits, consent, and agency over time</li>
-        </ul>
-        <button class="link" onclick="openPDF('research-paper.pdf','Research Paper')">view paper →</button>
-      </div>
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>Data Science Intern</h3>
-          <span class="date">Apr 2024 – Jun 2024</span>
-        </div>
-        <p class="company">World Relief, Sacramento</p>
-        <ul>
-          <li>Used Python and R to clean, analyze, and visualize job data across 10,000+ listings</li>
-          <li>Matched clients to job opportunities aligned with their skills and goals</li>
-          <li>Maintained tracking systems and shared ongoing insights to improve the matching process</li>
-        </ul>
-      </div>
+.nav-links a:hover { color: var(--red); }
 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>STEM Tutor, Math Lab</h3>
-          <span class="date">Jan 2024 – May 2025</span>
-        </div>
-        <p class="company">University of the Pacific</p>
-        <ul>
-          <li>Supported a first-generation student program serving 200+ students across coding, math, and engineering</li>
-          <li>Provided one-on-one and group tutoring to build confidence and improve performance</li>
-        </ul>
-      </div>
+.theme-btn {
+  width: 28px; height: 28px;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text2);
+  transition: all 0.2s;
+}
+.theme-btn:hover { border-color: var(--red); color: var(--red); }
 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>Data Support Fellow, AmeriCorps</h3>
-          <span class="date">Aug 2022 – May 2023</span>
-        </div>
-        <p class="company">Visionary Home Builders</p>
-        <ul>
-          <li>Managed confidential client data in Yardi to support housing placement workflows</li>
-          <li>Supported placement of 300+ families into affordable housing</li>
-        </ul>
-      </div>
+/* ── HERO ── */
+.hero {
+  background: var(--red);
+  min-height: 82vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
 
-      <div class="exp">
-        <div class="exp-top">
-          <h3>Office Assistant</h3>
-          <span class="date">Aug 2021 – Aug 2022</span>
-        </div>
-        <p class="company">Westgate Center for Leadership, Eberhardt School of Business</p>
-        <ul>
-          <li>Conducted national outreach across all 50 states to expand the center's network</li>
-          <li>Managed and cleaned large datasets in Excel, tracking 5,000+ regional contacts</li>
-        </ul>
-      </div>
-    </section>
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 40%, rgba(140,30,30,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 85% 15%, rgba(60,5,5,0.7) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 70% 85%, rgba(110,18,18,0.45) 0%, transparent 60%);
+  z-index: 1;
+}
 
-    <!-- education -->
-    <section id="education" class="sec">
-      <div class="sec-head"><h2>Education</h2><div class="sec-line"></div></div>
-      <div class="card">
-        <div class="card-top">
-          <div>
-            <h3>University of the Pacific</h3>
-            <p class="loc">Stockton, CA</p>
-            <p class="deg">Bachelor of Science in Computer Science · Cum Laude</p>
-          </div>
-          <span class="date">Fall 2025</span>
-        </div>
-        <div class="courses-toggle" role="button" tabindex="0" aria-expanded="true">
-          <h4>Relevant Coursework</h4>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="courses-box">
-          <div class="courses">
-            <div class="course"><span>Data Structures</span><b>A</b></div>
-            <div class="course"><span>Algorithms</span><b>A</b></div>
-            <div class="course"><span>Operating Systems</span><b>A</b></div>
-            <div class="course"><span>Computer Systems & Networks</span><b>A</b></div>
-            <div class="course"><span>Network Security & Sys Admin</span><b>A</b></div>
-            <div class="course"><span>Vulnerability Management</span><b>A</b></div>
-            <div class="course"><span>Incident Response & Forensics</span><b>A</b></div>
-            <div class="course"><span>Data Analytics Programming</span><b>A</b></div>
-            <div class="course"><span>Human-Computer Interface Design</span><b>A</b></div>
-            <div class="course"><span>Programming Languages</span><b>B</b></div>
-            <div class="course"><span>Computing Theory</span><b>A</b></div>
-            <div class="course"><span>Management Information Systems</span><b>A</b></div>
-          </div>
-        </div>
-        <p class="member"><strong>member of:</strong> SWE, MESA, Cybersecurity Club, Honors Program, Baking Club, SHPE</p>
-      </div>
-    </section>
+.flower-tl {
+  position: absolute; top: -40px; left: -40px;
+  width: 300px; opacity: 0.1; transform: rotate(-18deg);
+  z-index: 2; pointer-events: none;
+}
+.flower-br {
+  position: absolute; bottom: -40px; right: -40px;
+  width: 280px; opacity: 0.09; transform: rotate(148deg);
+  z-index: 2; pointer-events: none;
+}
 
-    <!-- skills -->
-    <section class="sec">
-      <div class="sec-head"><h2>Skills</h2><div class="sec-line"></div></div>
-      <div class="skills">
-        <div class="skill">
-          <h4>Technical</h4>
-          <p>Python, R, JavaScript (Next.js, React), Tailwind CSS, VBA</p>
-        </div>
-        <div class="skill">
-          <h4>Tools</h4>
-          <p>GitHub, Visual Studio, Jupyter Notebook, R Studio, VMware, Wireshark, Hugging Face</p>
-        </div>
-        <div class="skill">
-          <h4>Attributes</h4>
-          <p>Detail oriented, collaborative, strong communicator, eager to learn</p>
-        </div>
-      </div>
-    </section>
+.hero-content {
+  position: relative; z-index: 3;
+  text-align: center; padding: 5rem 2rem;
+}
 
-    <!-- projects -->
-    <section id="projects" class="sec">
-      <div class="sec-head"><h2>Projects</h2><div class="sec-line"></div></div>
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(3.8rem, 9vw, 8rem);
+  font-weight: 900;
+  color: #f5ede0;
+  letter-spacing: -0.01em;
+  line-height: 1.0;
+  opacity: 0;
+  transform: translateY(50px) scale(0.94);
+  animation: landIn 1.4s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+  cursor: pointer; user-select: none;
+  text-shadow: 0 4px 60px rgba(0,0,0,0.25);
+}
 
-      <div class="featured">
-        <span class="badge">Senior Project</span>
-        <h3>SenAI: Scam Detection & Digital Literacy Tool</h3>
-        <p>An accessible AI assistant designed to help older adults spot online scams. Trained a DistilBERT transformer model on 100k+ labeled messages with full-stack deployment and explainability outputs.</p>
-        <div class="btns">
-          <a href="https://scholarlycommons.pacific.edu/soecs-projects/2025/events/42/" target="_blank" class="btn">view project</a>
-          <button class="btn btn-out" onclick="openPDF('senai-paper.pdf','SenAI — Research Paper')">view paper</button>
-        </div>
-      </div>
+.hero-content h1.squiggle { animation: squiggle 0.55s ease-in-out; }
 
-      <div class="projects">
-        <div class="proj">
-          <span class="label">ENGR 174 · #1</span>
-          <h3>AlertMate</h3>
-          <p>Portable safety prototype built with Python + Fusion 360, designed for temporary housing contexts. Presented at a campus summit.</p>
-          <button class="link" onclick="openPDF('alertmate.pdf','AlertMate — Project Portfolio')">view project →</button>
-        </div>
-        <div class="proj">
-          <span class="label">COMP 55 · #2</span>
-          <h3>PowerCat Game</h3>
-          <p>Java game project focused on gameplay logic, UI flow, and team delivery. Awarded Best Game Development.</p>
-          <button class="link" onclick="openPDF('powercat-portfolio.pdf','PowerCat Game')">view portfolio →</button>
-          <a href="https://github.com/Fall2024Comp55/team-project-cs-tigers" target="_blank" class="link">view repository →</a>
-        </div>
-        <div class="proj">
-          <span class="label">COMP 283 · #3</span>
-          <h3>Vulnerability Management</h3>
-          <p>Vulnerability analysis, prioritization, and remediation planning deliverable.</p>
-          <button class="link" onclick="openPDF('vulnerability-management.pdf','Vulnerability Management')">view portfolio →</button>
-        </div>
-        <div class="proj">
-          <span class="label">COMP 276 · #4</span>
-          <h3>Incident Management</h3>
-          <p>Incident response planning + SOC workflow concepts with structured reporting.</p>
-          <button class="link" onclick="openPDF('incident-management.pdf','Incident Management')">view portfolio →</button>
-        </div>
-        <div class="proj">
-          <span class="label">COMP 162 · #5</span>
-          <h3>Global Data Project</h3>
-          <p>Analytics + visualization work using R with clear narrative and presentation.</p>
-          <button class="link" onclick="openPDF('globalData.pdf','Global Data Project')">view presentation →</button>
-          <a href="https://github.com/faizahm1/COMP162_project" target="_blank" class="link">view repository →</a>
-        </div>
-        <div class="proj">
-          <span class="label">COMP 162 · #6</span>
-          <h3>Cybersecurity Data Project</h3>
-          <p>Data cleaning, analysis, and visualization using Python with security-focused framing.</p>
-          <button class="link" onclick="openPDF('cyberDataPoster.pdf','Cybersecurity Data Project')">view project →</button>
-        </div>
-        <div class="proj">
-          <span class="label">COMP 135 · #7</span>
-          <h3>TeaTime UI</h3>
-          <p>Human-centered interface design presentation with usability and flow decisions.</p>
-          <button class="link" onclick="openPDF('teatime-presentation.pdf','TeaTime UI')">view presentation →</button>
-        </div>
-        <div class="proj">
-          <span class="label">COMP 141 · #8</span>
-          <h3>Visual Basic & VBA Project</h3>
-          <p>Programming languages exploration project with implementation and documentation.</p>
-          <button class="link" onclick="openPDF('visualBasic.pdf','Visual Basic & VBA Project')">view project →</button>
-        </div>
-        <div class="proj">
-          <span class="label">EMGT 170 · #9</span>
-          <h3>Decision Analysis</h3>
-          <p>Spider plots and tornado diagrams for sensitivity analysis in Excel.</p>
-          <button class="link" onclick="openPDF('decision-analysis.pdf','Decision Analysis')">view file →</button>
-        </div>
-      </div>
-    </section>
+@keyframes squiggle {
+  0%   { transform: translateX(0) rotate(0deg); }
+  15%  { transform: translateX(-9px) rotate(-1.8deg); }
+  30%  { transform: translateX(9px) rotate(1.8deg); }
+  50%  { transform: translateX(-5px) rotate(-0.8deg); }
+  70%  { transform: translateX(4px) rotate(0.5deg); }
+  85%  { transform: translateX(-2px); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
 
-    <!-- volunteering -->
-    <section id="volunteering" class="sec">
-      <div class="sec-head"><h2>Volunteering</h2><div class="sec-line"></div></div>
-      <div class="exp">
-        <div class="exp-top"><h3>Arabic Tutor</h3><span class="date">2019 – Present</span></div>
-        <p class="company">Private Practice</p>
-        <ul><li>Tutoring Arabic-speaking students in my community to build English confidence and communication skills</li></ul>
-      </div>
-      <div class="exp">
-        <div class="exp-top"><h3>Sparks Mentor</h3><span class="date">2024 – 2025</span></div>
-        <p class="company">Community Involvement Program</p>
-        <ul>
-          <li>Mentored students and encouraged them to pursue higher education</li>
-          <li>Created engaging math lesson plans for middle schoolers (6–8) to build confidence through creativity</li>
-        </ul>
-      </div>
-      <div class="exp">
-        <div class="exp-top"><h3>CHASE Mentor</h3><span class="date">2021 – 2023</span></div>
-        <p class="company">Community Involvement Program</p>
-        <ul>
-          <li>Encouraged students to pursue higher education and explore long-term goals</li>
-          <li>Supported STEM confidence through mentoring, structure, and consistency</li>
-        </ul>
-      </div>
-    </section>
+@keyframes landIn {
+  to { opacity:1; transform: translateY(0) scale(1); }
+}
 
-    <!-- contact -->
-    <section id="contact" class="sec">
-      <div class="sec-head"><h2>Contact</h2><div class="sec-line"></div></div>
-      <div class="contact">
-        <p><strong>email</strong> — <a href="mailto:muthanafaizah@gmail.com">muthanafaizah@gmail.com</a></p>
-        <p><strong>phone</strong> — 209-430-1078</p>
-        <p><strong>github</strong> — <a href="https://github.com/faizahm1" target="_blank">github.com/faizahm1</a></p>
-        <p><strong>linkedin</strong> — <a href="https://linkedin.com/in/faizahmuthana" target="_blank">linkedin.com/in/faizahmuthana</a></p>
-      </div>
-    </section>
+.hero-divider {
+  width: 48px; height: 1px;
+  background: rgba(245,237,224,0.3);
+  margin: 1.1rem auto;
+  opacity: 0; animation: landIn 1s ease 0.55s forwards;
+}
 
-  </main>
+.hero-sub {
+  color: rgba(245,237,224,0.62);
+  font-size: 0.88rem; font-weight: 400; letter-spacing: 0.04em;
+  opacity: 0; animation: landIn 1s ease 0.65s forwards;
+}
 
-  <footer>
-    <p>© <span id="year"></span> Faizah Muthana</p>
-  </footer>
+.hero-tag {
+  display: inline-block; margin-top: 1.4rem;
+  border: 1px solid rgba(245,237,224,0.22);
+  color: rgba(245,237,224,0.7);
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+  padding: 0.4rem 1rem; border-radius: 100px;
+  opacity: 0; animation: landIn 1s ease 0.85s forwards;
+}
 
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <span class="modal-title" id="modalTitle"></span>
-        <button class="modal-close" id="modalClose">✕</button>
-      </div>
-      <div class="modal-body">
-        <iframe id="modalFrame" title="document preview"></iframe>
-      </div>
-    </div>
-  </div>
+/* photo overlay */
+.photo-overlay {
+  position: absolute; inset: 0; z-index: 5;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(30,4,4,0.65);
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.photo-overlay.show { opacity: 1; pointer-events: all; }
+.photo-overlay-inner {
+  position: relative;
+  width: 220px; height: 220px;
+}
+.photo-overlay-inner img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  border-radius: 50%;
+  border: 3px solid rgba(245,237,224,0.35);
+  box-shadow: 0 0 0 8px rgba(245,237,224,0.07), 0 20px 60px rgba(0,0,0,0.5);
+  transform: scale(0.88); transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.photo-overlay.show .photo-overlay-inner img { transform: scale(1); }
+.photo-close {
+  position: absolute; top: -40px; right: -8px;
+  background: rgba(245,237,224,0.12); border: 1px solid rgba(245,237,224,0.18);
+  color: rgba(245,237,224,0.7); border-radius: 50%; width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 0.85rem;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+/* ── MAIN ── */
+.main { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
+
+.sec { margin: 4.5rem 0; }
+
+.sec-head {
+  display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.8rem;
+}
+.sec-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 1.4rem; font-weight: 700;
+  color: var(--red2); white-space: nowrap;
+}
+.sec-line { flex:1; height:1px; background: var(--border); }
+
+/* ── GLASS CARDS ── */
+.card, .exp, .proj, .featured, .skill, .contact {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.card-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 1rem; margin-bottom: 1rem;
+}
+
+.card h3, .exp h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--text);
+}
+
+.date {
+  font-size: 0.74rem; font-weight: 600; color: var(--red);
+  background: color-mix(in srgb, var(--red) 12%, transparent);
+  padding: 0.18rem 0.6rem; border-radius: 100px; white-space: nowrap;
+}
+
+.loc { color: var(--text2); font-size: 0.85rem; margin-top: 0.1rem; }
+.deg { font-weight: 600; font-size: 0.88rem; margin-top: 0.2rem; }
+
+/* ── ABOUT ── */
+.about-wrap {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 2.5rem; align-items: start;
+}
+
+.about-photo-wrap {
+  position: relative; width: 200px; height: 200px; flex-shrink: 0;
+}
+
+.about-photo-wrap::before {
+  content: '';
+  position: absolute; inset: -10px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--red) 25%, transparent);
+  animation: rotateBorder 12s linear infinite;
+}
+
+@keyframes rotateBorder {
+  to { transform: rotate(360deg); }
+}
+
+/* flower ring decoration */
+.about-photo-wrap::after {
+  content: '';
+  position: absolute; inset: -18px;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--red) 15%, transparent);
+}
+
+.about-photo {
+  width: 200px; height: 200px;
+  object-fit: cover; object-position: center top;
+  border-radius: 50%;
+  border: 3px solid color-mix(in srgb, var(--red) 25%, transparent);
+  box-shadow: 0 8px 40px color-mix(in srgb, var(--red) 15%, transparent);
+}
+
+.about-text p {
+  font-size: 0.93rem; color: var(--text2); line-height: 1.75; margin-bottom: 0.85rem;
+}
+.about-text p:last-child { margin-bottom: 0; }
+
+/* ── COURSES ── */
+.courses-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 1.2rem 0 0; cursor: pointer; user-select: none;
+  padding: 0.5rem 0; border-top: 1px solid var(--border);
+}
+.courses-toggle h4 {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--text2);
+}
+.toggle-icon { font-size: 0.65rem; color: var(--text2); transition: transform 0.3s; }
+.courses-toggle.open .toggle-icon { transform: rotate(180deg); }
+
+.courses-box { overflow: hidden; max-height: 600px; transition: max-height 0.4s ease; }
+.courses-box.collapsed { max-height: 0; }
+
+.courses { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.8rem 0 0; }
+
+.course {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.28rem 0.62rem;
+  background: color-mix(in srgb, var(--red) 6%, var(--cream2));
+  border: 1px solid var(--border); border-radius: 8px; font-size: 0.8rem;
+}
+.course span { font-weight: 500; color: var(--text); }
+.course b { font-weight: 800; font-size: 0.75rem; color: var(--red); }
+
+.member {
+  margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text2);
+}
+
+/* ── SKILLS ── */
+.skills { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+.skill h4 {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--red2); margin-bottom: 0.5rem;
+}
+.skill p { font-size: 0.85rem; color: var(--text2); }
+
+/* ── EXPERIENCE ── */
+.exp { margin-bottom: 0.85rem; }
+.exp-top {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; margin-bottom: 0.2rem;
+}
+.company { font-size: 0.8rem; color: var(--text2); font-weight: 600; margin-bottom: 0.65rem; }
+.exp ul { padding-left: 1.1rem; margin: 0.5rem 0; }
+.exp li { font-size: 0.85rem; color: var(--text2); margin-bottom: 0.3rem; }
+
+.link {
+  display: inline-block; margin-top: 0.6rem; margin-right: 0.65rem;
+  font-size: 0.8rem; font-weight: 700; color: var(--red);
+  text-decoration: none; background: none;
+  border: none; border-bottom: 1px solid color-mix(in srgb, var(--red) 28%, transparent);
+  padding-bottom: 1px; cursor: pointer; font-family: inherit;
+  transition: border-color 0.2s;
+}
+.link:hover { border-bottom-color: var(--red); }
+
+/* ── PROJECTS ── */
+.featured {
+  border: 1.5px solid color-mix(in srgb, var(--red) 25%, transparent);
+  margin-bottom: 1.2rem;
+}
+
+.badge {
+  display: inline-block; background: var(--red); color: #f5ede0;
+  font-size: 0.63rem; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.18rem 0.58rem;
+  border-radius: 100px; margin-bottom: 0.65rem;
+}
+
+.featured h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text);
+}
+.featured p { font-size: 0.85rem; color: var(--text2); margin-bottom: 1rem; }
+
+.btns { display: flex; gap: 0.55rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block; padding: 0.45rem 0.95rem;
+  background: var(--red); color: #f5ede0;
+  border-radius: 100px; font-weight: 600; font-size: 0.8rem;
+  text-decoration: none; border: none; cursor: pointer;
+  font-family: inherit; transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+.btn-out {
+  background: transparent; color: var(--red);
+  border: 1.5px solid color-mix(in srgb, var(--red) 30%, transparent);
+}
+.btn-out:hover { background: color-mix(in srgb, var(--red) 6%, transparent); opacity: 1; }
+
+.projects { display: grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); gap: 0.85rem; }
+
+.proj { display: flex; flex-direction: column; }
+.proj h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--text);
+}
+.proj p { font-size: 0.82rem; color: var(--text2); line-height: 1.55; flex:1; margin-bottom: 0.65rem; }
+
+.label {
+  display: inline-block; font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.05em; color: var(--red2); text-transform: uppercase;
+  margin-bottom: 0.5rem; opacity: 0.65;
+}
+
+/* ── CONTACT ── */
+.contact p { font-size: 0.85rem; color: var(--text2); margin-bottom: 0.55rem; }
+.contact p:last-child { margin-bottom: 0; }
+.contact a { color: var(--red); font-weight: 600; text-decoration: none; }
+.contact a:hover { text-decoration: underline; }
+
+/* ── FOOTER ── */
+footer {
+  background-image: url('rug.jpg');
+  background-size: cover; background-position: center;
+  position: relative; overflow: hidden;
+}
+footer::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(35,4,4,0.84);
+}
+footer p {
+  position: relative; z-index: 1;
+  padding: 2.2rem; text-align: center;
+  font-size: 0.8rem; color: rgba(245,237,224,0.55);
+  letter-spacing: 0.05em; font-family: 'Playfair Display', serif; font-style: italic;
+}
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(15,3,3,0.8);
+  z-index: 1000; display: flex;
+  align-items: center; justify-content: center;
+  padding: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--cream2); border: 1px solid var(--border);
+  border-radius: 18px; width: 100%; max-width: 820px;
+  max-height: 88vh; display: flex; flex-direction: column; overflow: hidden;
+  transform: scale(0.95) translateY(10px); transition: transform 0.25s;
+}
+.modal-overlay.open .modal { transform: scale(1) translateY(0); }
+
+.modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 1.4rem; border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+.modal-title { font-size: 0.86rem; font-weight: 600; color: var(--text); }
+.modal-close {
+  background: none; border: none; cursor: pointer;
+  font-size: 0.95rem; color: var(--text2); padding: 0.2rem 0.45rem; border-radius: 6px;
+}
+.modal-close:hover { background: var(--cream3); }
+.modal-body { flex:1; overflow: hidden; }
+.modal-body iframe { width:100%; height:100%; min-height:520px; border:none; display:block; }
+
+/* ── FLOWER CONFETTI ── */
+.flower-confetti {
+  position: fixed; pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  animation: flowerFall var(--dur, 2.8s) ease-out forwards;
+}
+
+@keyframes flowerFall {
+  0%   { opacity:0; transform: translate(-50%,-50%) scale(0.3) rotate(0deg); }
+  10%  { opacity:1; }
+  100% { opacity:0; transform: translate(calc(-50% + var(--dx,0px)), calc(-50% - 220px)) scale(var(--scale,0.9)) rotate(var(--rot,40deg)); }
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .about-wrap { grid-template-columns:1fr; }
+  .about-photo, .about-photo-wrap { width:160px; height:160px; }
+  .skills { grid-template-columns:1fr; }
+  .nav-links a:not(:last-child) { display:none; }
+}
