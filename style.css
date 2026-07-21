@@ -52,7 +52,7 @@ body {
 }
 .logo {
   font-family: 'Playfair Display', serif;
-  font-style: italic; font-weight: 700; font-size: 1.3rem;
+  font-style: italic; font-weight: 700; font-size: 1rem;
   color: var(--red); text-decoration: none;
 }
 .nav-links { display: flex; align-items: center; gap: 1.8rem; }
@@ -74,7 +74,7 @@ body {
 /* HERO */
 .hero {
   background: var(--red);
-  min-height: 55vh;
+  min-height: 42vh;
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
@@ -386,16 +386,17 @@ footer p {
   font-family: 'Playfair Display', serif; font-style: italic;
 }
 
-/* FLOWER CONFETTI */
+/* FLOWER CONFETTI - rains from top */
 .flower-confetti {
   position: fixed; pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  animation: flowerFall var(--dur, 2.6s) ease-out forwards;
+  left: 0; top: 0;
+  animation: flowerRain var(--dur, 2.8s) ease-in forwards;
 }
-@keyframes flowerFall {
-  0%   { opacity: 0; transform: translate(-50%,-50%) scale(0.3) rotate(0deg); }
-  10%  { opacity: 1; }
-  100% { opacity: 0; transform: translate(calc(-50% + var(--dx,0px)), calc(-50% - 200px)) scale(var(--sc,0.8)) rotate(var(--rot,40deg)); }
+@keyframes flowerRain {
+  0%   { opacity: 0; transform: translateX(var(--dx, 0px)) translateY(0) rotate(0deg) scale(0.6); }
+  8%   { opacity: 1; }
+  90%  { opacity: 0.8; }
+  100% { opacity: 0; transform: translateX(var(--dx, 0px)) translateY(var(--fall, 100vh)) rotate(var(--rot, 60deg)) scale(var(--sc, 0.9)); }
 }
 
 /* RESPONSIVE */
