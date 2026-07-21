@@ -1,109 +1,106 @@
-Script · JS
 // year
 document.getElementById('year').textContent = new Date().getFullYear();
- 
-// night mode
-document.getElementById('themeBtn').addEventListener('click', () => {
+
+// ── DARK MODE ──
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('night');
-  spawnFlowerConfetti(window.innerWidth / 2, window.innerHeight / 2, 20);
+  spawnFlowers(window.innerWidth / 2, window.innerHeight / 2, 16);
 });
- 
-// name click → squiggle + show photo
+
+// ── NAME CLICK → squiggle + show photo ──
 const heroName = document.getElementById('heroName');
 const photoOverlay = document.getElementById('photoOverlay');
 const photoClose = document.getElementById('photoClose');
- 
-if (heroName) {
-  heroName.addEventListener('click', () => {
-    heroName.classList.remove('squiggle');
-    void heroName.offsetWidth;
-    heroName.classList.add('squiggle');
-    setTimeout(() => photoOverlay.classList.add('show'), 250);
-  });
-}
-if (photoClose) photoClose.addEventListener('click', () => photoOverlay.classList.remove('show'));
-if (photoOverlay) photoOverlay.addEventListener('click', e => { if (e.target === photoOverlay) photoOverlay.classList.remove('show'); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); photoOverlay?.classList.remove('show'); } });
- 
-// collapsible courses — open by default
-document.querySelectorAll('.courses-toggle').forEach(toggle => {
-  // start open
-  toggle.classList.add('open');
-  toggle.setAttribute('aria-expanded', 'true');
- 
-  toggle.addEventListener('click', () => {
-    const open = toggle.classList.toggle('open');
-    toggle.nextElementSibling.classList.toggle('collapsed');
-    toggle.setAttribute('aria-expanded', open);
-  });
-  toggle.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); } });
+
+heroName.addEventListener('click', () => {
+  heroName.classList.remove('squiggle');
+  void heroName.offsetWidth; // force reflow
+  heroName.classList.add('squiggle');
+  setTimeout(() => photoOverlay.classList.add('show'), 200);
 });
- 
-// pdf modal
-const overlay = document.getElementById('modalOverlay');
-const modalTitle = document.getElementById('modalTitle');
-const modalFrame = document.getElementById('modalFrame');
- 
-function openPDF(url, title) {
-  modalTitle.textContent = title;
-  modalFrame.src = url;
-  overlay.classList.add('open');
+
+photoClose.addEventListener('click', () => photoOverlay.classList.remove('show'));
+photoOverlay.addEventListener('click', e => {
+  if (e.target === photoOverlay) photoOverlay.classList.remove('show');
+});
+
+// ── LOGO CLICK → also show photo ──
+const logoLink = document.getElementById('logoLink');
+if (logoLink) {
+  logoLink.addEventListener('click', e => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => photoOverlay.classList.add('show'), 400);
+  });
 }
- 
-function closeModal() {
-  overlay.classList.remove('open');
-  setTimeout(() => { modalFrame.src = ''; }, 300);
-}
- 
-document.getElementById('modalClose').addEventListener('click', closeModal);
-overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
- 
+
+// ── COURSES COLLAPSIBLE ──
+const coursesToggle = document.getElementById('coursesToggle');
+const coursesBox = document.getElementById('coursesBox');
+const toggleIcon = document.getElementById('toggleIcon');
+
+// start open
+let coursesOpen = true;
+
+coursesToggle.addEventListener('click', () => {
+  coursesOpen = !coursesOpen;
+  if (coursesOpen) {
+    coursesBox.classList.remove('collapsed');
+    toggleIcon.textContent = '▲';
+    coursesToggle.setAttribute('aria-expanded', 'true');
+  } else {
+    coursesBox.classList.add('collapsed');
+    toggleIcon.textContent = '▼';
+    coursesToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+coursesToggle.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    coursesToggle.click();
+  }
+});
+
+// ── ESCAPE closes photo overlay ──
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') photoOverlay.classList.remove('show');
+});
+
 // ── FLOWER CONFETTI ──
-// using the actual flower images as confetti particles
 const flowerSrcs = ['flower1.png', 'flower2.png'];
- 
-function spawnFlowerConfetti(cx, cy, count = 12) {
+
+function spawnFlowers(cx, cy, count) {
   for (let i = 0; i < count; i++) {
     setTimeout(() => {
       const img = document.createElement('img');
       img.src = flowerSrcs[Math.floor(Math.random() * flowerSrcs.length)];
       img.className = 'flower-confetti';
- 
-      const size = 24 + Math.random() * 22; // small: 24-46px
-      const dx = (Math.random() - 0.5) * 260;
-      const dur = 2.2 + Math.random() * 1.2;
-      const rot = (Math.random() - 0.5) * 120;
-      const scale = 0.6 + Math.random() * 0.5;
- 
-      img.style.cssText = `
-        left: ${cx}px;
-        top: ${cy}px;
-        width: ${size}px;
-        height: ${size}px;
-        --dx: ${dx}px;
-        --dur: ${dur}s;
-        --rot: ${rot}deg;
-        --scale: ${scale};
-      `;
+      const size = 22 + Math.random() * 24;
+      const dx = (Math.random() - 0.5) * 280;
+      const dur = 2.0 + Math.random() * 1.4;
+      const rot = (Math.random() - 0.5) * 130;
+      const sc = 0.55 + Math.random() * 0.55;
+      img.style.cssText = `left:${cx}px;top:${cy}px;width:${size}px;height:${size}px;--dx:${dx}px;--dur:${dur}s;--rot:${rot}deg;--sc:${sc}`;
       document.body.appendChild(img);
-      setTimeout(() => img.remove(), dur * 1000 + 100);
-    }, i * 60);
+      setTimeout(() => img.remove(), (dur + 0.1) * 1000);
+    }, i * 55);
   }
 }
- 
-// double click anywhere → flower burst
-document.addEventListener('dblclick', e => spawnFlowerConfetti(e.clientX, e.clientY, 10));
- 
+
+// double click anywhere → flowers
+document.addEventListener('dblclick', e => spawnFlowers(e.clientX, e.clientY, 10));
+
 // mobile double tap
 let lastTap = 0;
 document.addEventListener('touchend', e => {
   const now = Date.now();
-  if (now - lastTap < 300) spawnFlowerConfetti(e.changedTouches[0].clientX, e.changedTouches[0].clientY, 10);
+  if (now - lastTap < 300) spawnFlowers(e.changedTouches[0].clientX, e.changedTouches[0].clientY, 10);
   lastTap = now;
 }, { passive: true });
- 
-// page load flower burst
+
+// page load burst
 window.addEventListener('load', () => {
-  setTimeout(() => spawnFlowerConfetti(window.innerWidth / 2, window.innerHeight / 3, 18), 500);
+  setTimeout(() => spawnFlowers(window.innerWidth / 2, window.innerHeight * 0.35, 16), 500);
 });
- 
