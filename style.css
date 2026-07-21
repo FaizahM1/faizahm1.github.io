@@ -52,7 +52,7 @@ body {
 }
 .logo {
   font-family: 'Playfair Display', serif;
-  font-style: italic; font-weight: 700; font-size: 1rem;
+  font-style: italic; font-weight: 700; font-size: 0.85rem;
   color: var(--red); text-decoration: none;
 }
 .nav-links { display: flex; align-items: center; gap: 1.8rem; }
@@ -71,10 +71,13 @@ body {
 }
 .theme-btn:hover { border-color: var(--red); color: var(--red); }
 
+/* night logo stays red accent */
+body.night .logo { color: var(--red); }
+
 /* HERO */
 .hero {
   background: var(--red);
-  min-height: 42vh;
+  min-height: 32vh;
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
@@ -406,4 +409,14 @@ footer p {
   .skills { grid-template-columns: 1fr; }
   .nav-links a { display: none; }
   .nav-links a:last-of-type, .theme-btn { display: flex; }
+}
+
+/* CONFETTI PIECES */
+.confetti-piece {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  animation: flowerFall var(--dur, 2.5s) ease-in forwards;
+  animation-delay: var(--delay, 0s);
+  opacity: 0;
 }
