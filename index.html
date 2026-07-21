@@ -7,12 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <nav class="nav">
     <div class="nav-wrap">
-      <a href="#top" class="logo">fm</a>
+      <a href="#top" class="logo" id="logoLink">fm</a>
       <div class="nav-links">
         <a href="#about">about</a>
         <a href="#education">education</a>
@@ -34,10 +33,14 @@
     <img src="flower1.png" class="flower-tl" alt="">
     <img src="flower2.png" class="flower-br" alt="">
 
+    <!-- photo overlay -->
     <div class="photo-overlay" id="photoOverlay">
       <div class="photo-overlay-inner">
         <button class="photo-close" id="photoClose">✕</button>
         <img src="faizah.png" alt="Faizah Muthana">
+        <div class="photo-overlay-text">
+          <p>hi, i'm faizah — cs grad, data researcher,<br>and someone who bakes too much ♡</p>
+        </div>
       </div>
     </div>
 
@@ -61,7 +64,7 @@
         <div class="about-text">
           <p>Hello! I'm Faizah and I grew up in California where I attended UOP and earned my bachelor's in computer science (fall '25). I've spent the last few years researching data analysis and AI safety, and I'm now on the hunt for my first full-time role.</p>
           <p>I'm really interested in the intersection of tech and social impact. Aside from code, you'll usually find me baking or writing. If you're working in data, research or AI and are open to connecting, I would love to hear how you got your start ♡</p>
-          <p style="font-size:0.8rem; color:var(--text2); margin-top:0.5rem; opacity:0.8;">Member of: Rewriting the Code · Society of Women Engineers · MESA · SHPE · Cybersecurity Club · Honors Program · Baking Club</p>
+          <p class="members-line">Member of: Rewriting the Code · Society of Women Engineers · MESA · SHPE · Cybersecurity Club · Honors Program · Baking Club</p>
         </div>
       </div>
     </section>
@@ -80,7 +83,7 @@
           <li>Researching AI as a learning agent under the supervision of Dr. Heidaripour</li>
           <li>Exploring how "click-to-agree" systems shape habits, consent, and agency over time</li>
         </ul>
-        <button class="link" onclick="openPDF('research-paper.pdf','Research Paper')">view paper →</button>
+        <a href="https://docs.google.com/document/d/1LBqOP4TrgpO3YYdVMAlrHSSzXmwKlqkayXrXVT2ecTM/edit?usp=sharing" target="_blank" class="link">read paper →</a>
       </div>
 
       <div class="exp">
@@ -145,11 +148,12 @@
           </div>
           <span class="date">Fall 2025</span>
         </div>
-        <div class="courses-toggle" role="button" tabindex="0" aria-expanded="true">
+
+        <div class="courses-toggle" id="coursesToggle" role="button" tabindex="0" aria-expanded="true">
           <h4>Relevant Coursework</h4>
-          <span class="toggle-icon">▼</span>
+          <span class="toggle-icon" id="toggleIcon">▲</span>
         </div>
-        <div class="courses-box">
+        <div class="courses-box" id="coursesBox">
           <div class="courses">
             <div class="course"><span>Data Structures</span><b>A</b></div>
             <div class="course"><span>Algorithms</span><b>A</b></div>
@@ -165,6 +169,7 @@
             <div class="course"><span>Management Information Systems</span><b>A</b></div>
           </div>
         </div>
+
         <p class="member"><strong>member of:</strong> SWE, MESA, Cybersecurity Club, Honors Program, Baking Club, SHPE</p>
       </div>
     </section>
@@ -198,7 +203,7 @@
         <p>An accessible AI assistant designed to help older adults spot online scams. Trained a DistilBERT transformer model on 100k+ labeled messages with full-stack deployment and explainability outputs.</p>
         <div class="btns">
           <a href="https://scholarlycommons.pacific.edu/soecs-projects/2025/events/42/" target="_blank" class="btn">view project</a>
-          <button class="btn btn-out" onclick="openPDF('senai-paper.pdf','SenAI — Research Paper')">view paper</button>
+          <a href="https://docs.google.com/document/d/1g3e0TSK6RVssCVCoAcVxpz1baVgnp-6sciYxMvkoyAs/edit?usp=sharing" target="_blank" class="btn btn-out">read paper</a>
         </div>
       </div>
 
@@ -207,57 +212,57 @@
           <span class="label">ENGR 174 · #1</span>
           <h3>AlertMate</h3>
           <p>Portable safety prototype built with Python + Fusion 360, designed for temporary housing contexts. Presented at a campus summit.</p>
-          <button class="link" onclick="openPDF('alertmate.pdf','AlertMate — Project Portfolio')">view project →</button>
+          <a href="https://www.canva.com/design/DAGD0i2I33Q/as-ZhFa3qrnWFJ0a_CiMBw/edit" target="_blank" class="link">view project →</a>
         </div>
         <div class="proj">
           <span class="label">COMP 55 · #2</span>
           <h3>PowerCat Game</h3>
           <p>Java game project focused on gameplay logic, UI flow, and team delivery. Awarded Best Game Development.</p>
-          <button class="link" onclick="openPDF('powercat-portfolio.pdf','PowerCat Game')">view portfolio →</button>
+          <a href="https://docs.google.com/document/d/1j8nZha_-WDmiNEA-sNWunOjpisLLgYynmBk6zMI3fAo/edit" target="_blank" class="link">view portfolio →</a>
           <a href="https://github.com/Fall2024Comp55/team-project-cs-tigers" target="_blank" class="link">view repository →</a>
         </div>
         <div class="proj">
           <span class="label">COMP 283 · #3</span>
           <h3>Vulnerability Management</h3>
           <p>Vulnerability analysis, prioritization, and remediation planning deliverable.</p>
-          <button class="link" onclick="openPDF('vulnerability-management.pdf','Vulnerability Management')">view portfolio →</button>
+          <a href="https://docs.google.com/document/d/11hd0eVrm0C1loyaqag7Qwv7cO5zTnubg9gQr08zVkEE/edit?usp=sharing" target="_blank" class="link">view portfolio →</a>
         </div>
         <div class="proj">
           <span class="label">COMP 276 · #4</span>
           <h3>Incident Management</h3>
           <p>Incident response planning + SOC workflow concepts with structured reporting.</p>
-          <button class="link" onclick="openPDF('incident-management.pdf','Incident Management')">view portfolio →</button>
+          <a href="https://docs.google.com/document/d/1vd_SXp6aVV8r8H4ukzqgaPjxwYePZDBHoKsS2btgs0A/edit?usp=sharing" target="_blank" class="link">view portfolio →</a>
         </div>
         <div class="proj">
           <span class="label">COMP 162 · #5</span>
           <h3>Global Data Project</h3>
           <p>Analytics + visualization work using R with clear narrative and presentation.</p>
-          <button class="link" onclick="openPDF('globalData.pdf','Global Data Project')">view presentation →</button>
+          <a href="https://www.canva.com/design/DAGgvZLdxdA/EKcyCnB9nApxdE98ItnVKg/edit" target="_blank" class="link">view presentation →</a>
           <a href="https://github.com/faizahm1/COMP162_project" target="_blank" class="link">view repository →</a>
         </div>
         <div class="proj">
           <span class="label">COMP 162 · #6</span>
           <h3>Cybersecurity Data Project</h3>
           <p>Data cleaning, analysis, and visualization using Python with security-focused framing.</p>
-          <button class="link" onclick="openPDF('cyberDataPoster.pdf','Cybersecurity Data Project')">view project →</button>
+          <a href="https://www.canva.com/design/DAGkoUzyWJI/5nJnYnF_3ChLyB3dDXVSpg/edit" target="_blank" class="link">view project →</a>
         </div>
         <div class="proj">
           <span class="label">COMP 135 · #7</span>
           <h3>TeaTime UI</h3>
           <p>Human-centered interface design presentation with usability and flow decisions.</p>
-          <button class="link" onclick="openPDF('teatime-presentation.pdf','TeaTime UI')">view presentation →</button>
+          <a href="https://docs.google.com/presentation/d/18cZKy3ySDmx7nNhysLgF33BUqCWo3wel/edit?usp=sharing" target="_blank" class="link">view presentation →</a>
         </div>
         <div class="proj">
           <span class="label">COMP 141 · #8</span>
           <h3>Visual Basic & VBA Project</h3>
           <p>Programming languages exploration project with implementation and documentation.</p>
-          <button class="link" onclick="openPDF('visualBasic.pdf','Visual Basic & VBA Project')">view project →</button>
+          <a href="https://www.canva.com/design/DAGU4oFk9JM/KsFuhcCEk-WAY71vX40zdA/edit" target="_blank" class="link">view project →</a>
         </div>
         <div class="proj">
           <span class="label">EMGT 170 · #9</span>
           <h3>Decision Analysis</h3>
           <p>Spider plots and tornado diagrams for sensitivity analysis in Excel.</p>
-          <button class="link" onclick="openPDF('decision-analysis.pdf','Decision Analysis')">view file →</button>
+          <a href="https://pacificedu-my.sharepoint.com/:x:/g/personal/f_muthana_u_pacific_edu/IQA3bX8BF2YwTqDGrcbmKAkTAXlHV_RCDeMjBwfPzVC3cX0?e=8uqtl6" target="_blank" class="link">view file →</a>
         </div>
       </div>
     </section>
@@ -304,18 +309,6 @@
   <footer>
     <p>© <span id="year"></span> Faizah Muthana</p>
   </footer>
-
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <span class="modal-title" id="modalTitle"></span>
-        <button class="modal-close" id="modalClose">✕</button>
-      </div>
-      <div class="modal-body">
-        <iframe id="modalFrame" title="document preview"></iframe>
-      </div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
