@@ -2,14 +2,14 @@
   --red: #5c1212;
   --red2: #7a1a1a;
   --red3: #9b2222;
-  --cream: #f7f2ea;
-  --cream2: #faf6f0;
-  --cream3: #ede6d8;
-  --text: #1a0808;
-  --text2: #5a3828;
-  --border: #c8b8a2;
-  --card-bg: rgba(250,244,234,0.9);
-  --card-border: rgba(92,18,18,0.18);
+  --cream: #f0e8da;
+  --cream2: #f5edde;
+  --cream3: #e8ddd0;
+  --text: #160606;
+  --text2: #4a2e1e;
+  --border: #b8a090;
+  --card-bg: rgba(248,238,224,0.95);
+  --card-border: rgba(92,18,18,0.25);
 }
 
 body.night {
@@ -44,7 +44,7 @@ body::before, body::after {
   top: 0; bottom: 0;
   width: 5px;
   background: linear-gradient(180deg, var(--red) 0%, transparent 20%, transparent 80%, var(--red) 100%);
-  opacity: 0.35;
+  opacity: 0.55;
   z-index: 50;
   pointer-events: none;
 }
@@ -229,6 +229,7 @@ body::after { right: 0; }
 .card, .exp, .proj, .featured, .skill, .contact {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
+  border-left: 3px solid color-mix(in srgb, var(--red) 40%, transparent);
   border-radius: 12px;
   padding: 1.4rem;
   transition: background 0.4s, border-color 0.4s;
