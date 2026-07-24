@@ -54,9 +54,8 @@ body::after { right: 0; }
 /* nav */
 .nav {
   position: sticky; top: 0; z-index: 100;
-  background: color-mix(in srgb, var(--cream) 92%, transparent);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  background: var(--red);
+  border-bottom: 1px solid color-mix(in srgb, var(--red2) 80%, transparent);
   transition: background 0.4s;
 }
 .nav-wrap {
@@ -67,23 +66,23 @@ body::after { right: 0; }
 .logo {
   font-family: 'Playfair Display', serif;
   font-style: italic; font-weight: 700; font-size: 0.9rem;
-  color: var(--red); text-decoration: none;
+  color: #f5ede0; text-decoration: none;
 }
 .nav-links { display: flex; align-items: center; gap: 1.6rem; }
 .nav-links a {
-  color: var(--text2); text-decoration: none;
+  color: rgba(245,237,224,0.75); text-decoration: none;
   font-size: 0.8rem; font-weight: 500; letter-spacing: 0.02em;
   transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--red); }
+.nav-links a:hover { color: #f5ede0; }
 .theme-btn {
   width: 27px; height: 27px;
-  border: 1.5px solid var(--border); border-radius: 50%;
+  border: 1.5px solid rgba(245,237,224,0.3); border-radius: 50%;
   background: transparent; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  color: var(--text2); transition: all 0.2s;
+  color: rgba(245,237,224,0.7); transition: all 0.2s;
 }
-.theme-btn:hover { border-color: var(--red); color: var(--red); }
+.theme-btn:hover { border-color: #f5ede0; color: #f5ede0; }
 
 /* hero — no solid banner, just transparent bg with flowers */
 .hero {
