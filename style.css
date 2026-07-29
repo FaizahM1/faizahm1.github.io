@@ -1,16 +1,16 @@
 /* tokens */
 :root {
-  --pink: #b05870;
-  --pink2: #8a3a52;
-  --pink3: #d4889c;
-  --cream: #fdf6f2;
-  --cream2: #faf0ec;
-  --cream3: #f2e4dc;
-  --text: #2a1018;
-  --text2: #5a3040;
-  --border: #ddb8c4;
-  --card-bg: rgba(255,245,248,0.97);
-  --card-border: rgba(176,88,112,0.2);
+  --pink: #d4849c;
+  --pink2: #c07090;
+  --pink3: #e8b0c0;
+  --cream: #fefaf8;
+  --cream2: #fdf6f4;
+  --cream3: #f8ecea;
+  --text: #2a1520;
+  --text2: #7a5060;
+  --border: #eac8d4;
+  --card-bg: rgba(255,250,252,0.97);
+  --card-border: rgba(212,132,156,0.2);
 }
 
 /* night mode */
@@ -56,8 +56,8 @@ body::after { right: 0; }
 /* nav */
 .nav {
   position: sticky; top: 0; z-index: 100;
-  background: #f2d4de;
-  border-bottom: 1px solid #ddb8c4;
+  background: #fce8f0;
+  border-bottom: 1px solid #eac8d4;
   transition: background 0.4s;
 }
 
