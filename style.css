@@ -93,7 +93,7 @@ body::after { right: 0; }
   background: transparent;
 }
 
-/* subtle red wash behind hero content only */
+/* red dash */
 .hero::before {
   content: '';
   position: absolute; inset: 0;
@@ -391,8 +391,9 @@ body::after { right: 0; }
 
 /* footer */
 footer {
-  background-image: url('r.jpg');
-  background-size: cover; background-position: center;
+  background-image: url('r.png');
+  background-size: contain;
+  background-repeat: repeat;
   position: relative; overflow: hidden;
 }
 footer::before {
