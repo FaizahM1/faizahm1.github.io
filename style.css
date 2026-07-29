@@ -335,7 +335,7 @@ footer {
 }
 footer::before {
   content: ''; position: absolute; inset: 0;
-  background: rgba(30,3,3,0.85);
+  background: rgba(30,3,3,0.92);
 }
 footer p {
   position: relative; z-index: 1;
