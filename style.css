@@ -56,9 +56,9 @@ body::after { right: 0; }
 /* nav */
 .nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(253,247,236,0.95);
+  background: rgba(214,155,173,0.96);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(212,132,156,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
   transition: background 0.4s;
 }
 
@@ -76,19 +76,19 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
 .logo {
   font-family: 'Playfair Display', serif;
   font-style: italic; font-weight: 700; font-size: 0.9rem;
-  color: var(--pink2); text-decoration: none;
+  color: #fdf6ec; text-decoration: none;
 }
 .nav-links { display: flex; align-items: center; gap: 1.6rem; }
 .nav-links a {
-  color: #a8798a;
+  color: rgba(253,246,236,0.92);
   text-decoration: none;
   font-size: 0.8rem; font-weight: 500; letter-spacing: 0.02em;
   transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--pink2); }
+.nav-links a:hover { color: #fff; }
 .theme-btn {
   width: 27px; height: 27px;
-  border: 1.5px solid var(--pink2); border-radius: 50%;
+  border: 1.5px solid rgba(253,246,236,0.6); border-radius: 50%;
   background: transparent; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   color: var(--pink2); transition: all 0.2s;
@@ -98,7 +98,7 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
 /* hero */
 .hero {
   position: relative;
-  min-height: clamp(360px, 48vh, 480px);
+  min-height: clamp(420px, 54vh, 560px);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
   background: transparent;
@@ -110,13 +110,13 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
   z-index: 0;
 }
 .flower-tl {
-  position: absolute; top: -60px; left: -60px;
-  width: 295px; opacity: 0.15; transform: rotate(-18deg);
+  position: absolute; top: -70px; left: -68px;
+  width: 350px; opacity: 0.15; transform: rotate(-18deg);
   z-index: 1; pointer-events: none;
 }
 .flower-br {
-  position: absolute; top: -118px; right: -64px;
-  width: 300px; opacity: 0.14; transform: rotate(168deg);
+  position: absolute; top: -150px; right: -70px;
+  width: 360px; opacity: 0.14; transform: rotate(168deg);
   z-index: 1; pointer-events: none;
 }
 .hero-content {
@@ -160,7 +160,7 @@ body.night .hero-tag { color: var(--text); }
 
 /* main */
 .main { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem 5rem; }
-.sec { margin: 4rem 0; }
+.sec { margin: 4rem 0; scroll-margin-top: 96px; }
 .sec:first-child { margin-top: 2rem; }
 
 /* sections */
@@ -351,7 +351,7 @@ footer p {
   font-family: 'Playfair Display', serif; font-style: italic;
 }
 
-.flower-confetti { position: fixed; pointer-events: none; z-index: 9999; }
+.flower-confetti { position: fixed; pointer-events: none; z-index: 9999; opacity: 0; will-change: transform, opacity; }
 
 /* responsive */
 @media (max-width: 768px) {
@@ -360,9 +360,9 @@ footer p {
   .skills { grid-template-columns: 1fr; }
   .nav-links a { display: none; }
   .theme-btn { display: flex; }
-  .hero { min-height: 300px; }
-  .flower-tl { width: 175px; top: -34px; left: -38px; }
-  .flower-br { width: 180px; top: -70px; right: -40px; }
+  .hero { min-height: 330px; }
+  .flower-tl { width: 200px; top: -40px; left: -44px; }
+  .flower-br { width: 205px; top: -86px; right: -46px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
