@@ -110,20 +110,20 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
   z-index: 0;
 }
 .flower-tl, .flower-br {
-  position: absolute; top: -54px;
-  width: 270px; opacity: 0.17;
-  filter: blur(1.6px) saturate(0.88);
+  position: absolute; top: -48px;
+  width: 205px; opacity: 0.18;
+  filter: blur(0.4px) saturate(0.9);
   -webkit-mask-image: radial-gradient(circle at 48% 46%, #000 30%, rgba(0,0,0,0.55) 52%, transparent 74%);
   mask-image: radial-gradient(circle at 48% 46%, #000 30%, rgba(0,0,0,0.55) 52%, transparent 74%);
   z-index: 1; pointer-events: none;
 }
 .flower-tl {
-  left: -54px;
+  left: -48px;
   transform: rotate(-14deg);
   animation: swayL 17s ease-in-out infinite;
 }
 .flower-br {
-  right: -54px;
+  right: -48px;
   transform: scaleX(-1) rotate(-14deg);
   animation: swayR 21s ease-in-out infinite;
 }
@@ -377,7 +377,7 @@ footer p {
   .nav-links a { display: none; }
   .theme-btn { display: flex; }
   .hero { min-height: 320px; }
-  .flower-tl, .flower-br { width: 155px; top: -30px; }
+  .flower-tl, .flower-br { width: 128px; top: -26px; }
   .flower-tl { left: -30px; }
   .flower-br { right: -30px; }
 }
