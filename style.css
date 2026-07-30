@@ -98,7 +98,7 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
 /* hero */
 .hero {
   position: relative;
-  min-height: clamp(430px, 50vh, 540px);
+  min-height: clamp(440px, 52vh, 560px);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
   background: transparent;
@@ -110,20 +110,20 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
   z-index: 0;
 }
 .flower-tl, .flower-br {
-  position: absolute; top: -140px;
-  width: 620px; opacity: 0.2;
-  -webkit-mask-image: radial-gradient(circle at 48% 46%, #000 46%, rgba(0,0,0,0.7) 66%, transparent 86%);
-  mask-image: radial-gradient(circle at 48% 46%, #000 46%, rgba(0,0,0,0.7) 66%, transparent 86%);
+  position: absolute; top: -118px;
+  width: 520px; opacity: 0.17;
+  -webkit-mask-image: radial-gradient(circle at 48% 46%, #000 40%, rgba(0,0,0,0.6) 62%, transparent 80%);
+  mask-image: radial-gradient(circle at 48% 46%, #000 40%, rgba(0,0,0,0.6) 62%, transparent 80%);
   z-index: 1; pointer-events: none;
 }
 .flower-tl {
-  left: -126px;
+  left: -112px;
   transform: rotate(-14deg);
   animation: swayL 17s ease-in-out infinite;
 }
 .flower-br {
-  right: -126px;
-  transform: scaleX(-1) rotate(-14deg);
+  right: -112px;
+  transform: scale(-1, -1) rotate(-14deg);
   animation: swayR 21s ease-in-out infinite;
 }
 @keyframes swayL {
@@ -131,8 +131,8 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
   50% { transform: rotate(-11deg) translate(6px, -10px); }
 }
 @keyframes swayR {
-  0%, 100% { transform: scaleX(-1) rotate(-14deg) translate(0, 0); }
-  50% { transform: scaleX(-1) rotate(-11deg) translate(6px, -10px); }
+  0%, 100% { transform: scale(-1, -1) rotate(-14deg) translate(0, 0); }
+  50% { transform: scale(-1, -1) rotate(-11deg) translate(6px, -10px); }
 }
 .hero-content {
   position: relative; z-index: 2;
@@ -376,9 +376,9 @@ footer p {
   .nav-links a { display: none; }
   .theme-btn { display: flex; }
   .hero { min-height: 320px; }
-  .flower-tl, .flower-br { width: 340px; top: -78px; }
-  .flower-tl { left: -70px; }
-  .flower-br { right: -70px; }
+  .flower-tl, .flower-br { width: 290px; top: -66px; }
+  .flower-tl { left: -62px; }
+  .flower-br { right: -62px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
