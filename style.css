@@ -110,13 +110,13 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
   z-index: 0;
 }
 .flower-tl {
-  position: absolute; top: -40px; left: -50px;
-  width: 250px; opacity: 0.15; transform: rotate(-18deg);
+  position: absolute; top: -46px; left: -56px;
+  width: 285px; opacity: 0.15; transform: rotate(-18deg);
   z-index: 1; pointer-events: none;
 }
 .flower-br {
-  position: absolute; bottom: -40px; right: -50px;
-  width: 230px; opacity: 0.13; transform: rotate(148deg);
+  position: absolute; top: -58px; right: -56px;
+  width: 265px; opacity: 0.13; transform: rotate(148deg);
   z-index: 1; pointer-events: none;
 }
 .hero-content {
@@ -129,6 +129,7 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
   font-size: clamp(2.6rem, 6.4vw, 5rem);
   font-weight: 900; color: #c68fa3;
   letter-spacing: -0.01em; line-height: 1.0;
+  text-shadow: 0 0 26px rgba(196,112,144,0.26), 0 0 64px rgba(212,132,156,0.15);
   opacity: 0; transform: translateY(40px) scale(0.95);
   animation: landIn 1.3s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
 }
@@ -359,8 +360,8 @@ footer p {
   .skills { grid-template-columns: 1fr; }
   .nav-links a { display: none; }
   .theme-btn { display: flex; }
-  .flower-tl { width: 155px; top: -24px; left: -32px; }
-  .flower-br { width: 140px; bottom: -24px; right: -32px; }
+  .flower-tl { width: 180px; top: -28px; left: -36px; }
+  .flower-br { width: 168px; top: -34px; right: -36px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
