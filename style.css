@@ -98,7 +98,7 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
 /* hero */
 .hero {
   position: relative;
-  min-height: clamp(440px, 52vh, 560px);
+  min-height: clamp(460px, 52vh, 580px);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
   background: transparent;
@@ -109,30 +109,37 @@ body.night .theme-btn { border-color: rgba(253,240,244,0.3); color: rgba(253,240
   background: radial-gradient(ellipse 70% 90% at 50% 50%, rgba(176,88,112,0.05) 0%, transparent 70%);
   z-index: 0;
 }
+.hero::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(254,250,248,0) 0%, var(--cream) 88%);
+  z-index: 1; pointer-events: none;
+}
 .flower-tl, .flower-br {
-  position: absolute; top: -118px;
-  width: 520px; opacity: 0.17;
-  -webkit-mask-image: radial-gradient(circle at 48% 46%, #000 40%, rgba(0,0,0,0.6) 62%, transparent 80%);
-  mask-image: radial-gradient(circle at 48% 46%, #000 40%, rgba(0,0,0,0.6) 62%, transparent 80%);
+  position: absolute; top: -178px;
+  width: 470px; opacity: 0.17;
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 40%, rgba(0,0,0,0.5) 62%, transparent 82%);
+  mask-image: radial-gradient(circle at 50% 45%, #000 40%, rgba(0,0,0,0.5) 62%, transparent 82%);
   z-index: 1; pointer-events: none;
 }
 .flower-tl {
-  left: -112px;
-  transform: rotate(-14deg);
+  left: -104px;
+  transform: rotate(-10deg);
   animation: swayL 17s ease-in-out infinite;
 }
 .flower-br {
-  right: -112px;
-  transform: scale(-1, -1) rotate(-14deg);
+  right: -104px;
+  transform: scaleX(-1) rotate(-10deg);
   animation: swayR 21s ease-in-out infinite;
 }
 @keyframes swayL {
-  0%, 100% { transform: rotate(-14deg) translate(0, 0); }
-  50% { transform: rotate(-11deg) translate(6px, -10px); }
+  0%, 100% { transform: rotate(-10deg) translate(0, 0); }
+  50% { transform: rotate(-7deg) translate(6px, -10px); }
 }
 @keyframes swayR {
-  0%, 100% { transform: scale(-1, -1) rotate(-14deg) translate(0, 0); }
-  50% { transform: scale(-1, -1) rotate(-11deg) translate(6px, -10px); }
+  0%, 100% { transform: scaleX(-1) rotate(-10deg) translate(0, 0); }
+  50% { transform: scaleX(-1) rotate(-7deg) translate(6px, -10px); }
 }
 .hero-content {
   position: relative; z-index: 2;
@@ -375,10 +382,10 @@ footer p {
   .skills { grid-template-columns: 1fr; }
   .nav-links a { display: none; }
   .theme-btn { display: flex; }
-  .hero { min-height: 320px; }
-  .flower-tl, .flower-br { width: 290px; top: -66px; }
-  .flower-tl { left: -62px; }
-  .flower-br { right: -62px; }
+  .hero { min-height: 380px; }
+  .flower-tl, .flower-br { width: 270px; top: -100px; }
+  .flower-tl { left: -56px; }
+  .flower-br { right: -56px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
